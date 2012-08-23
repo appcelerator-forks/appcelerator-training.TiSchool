@@ -2,7 +2,7 @@ TiSchool
 ========
 
 
-<img src='http://robohash.org/https://github.com/appcelerator-training/TiSchool' style="float:left;margin:0 20px 20px 0;border:none;width:200px;height:200px;">TiSchool (rhymes with "High School") is Appcelerator's Titanium educational materials for secondary schools, clubs, etc. These materials are designed to help teachers and volunteers teach Titanium at the High School, Jr. High School level. Materials are open source and free for all to use according to the license terms below.
+<img src='http://robohash.org/https://github.com/appcelerator-training/TiSchool' style="float:right;margin:0 0 20px 20px;border:none;" width="200" height="200">TiSchool (rhymes with "High School") is Appcelerator's Titanium educational materials for secondary schools, clubs, etc. These materials are designed to help teachers and volunteers teach Titanium at the High School, Jr. High School level. Materials are open source and free for all to use according to the license terms below.
 
 
 # License
