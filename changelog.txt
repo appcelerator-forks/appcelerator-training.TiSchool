@@ -1,0 +1,7 @@
+Changelog
+
+[###] refers to the lesson number of the associated change
+
+2012-08-27
+===================================================
+Nothing here yet ...

@@ -1,0 +1,9 @@
+License
+
+Unless otherwise stated, the slides and contents of this repository are licensed under the [Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0)](http://creativecommons.org/licenses/by-nc-sa/3.0/) license. You are free to use, copy, distribute, and adapt these materials under these terms:
+
+* You cannot use these slides or derivatives for commercial purposes (e.g. classes you charge for). Commercial use is restricted to Authorized Training Partners (ATPs). Visit [http://www.appcelerator.com/form/forms/www/partner-training-submit](http://www.appcelerator.com/form/forms/www/partner-training-submit) for information on becoming an ATP.
+* You must attribute Appcelerator, Inc. in any use or derivative of these materials.
+* If you distribute these materials, you must do so under the same license.
+
+These slides use [Crystal Clear](http://commons.wikimedia.org/wiki/Crystal_Clear) icons, which are licensed under the [LGPL](http://www.everaldo.com/crystal/?action=license) license.
