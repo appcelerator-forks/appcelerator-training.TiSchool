@@ -1,0 +1,30 @@
+<html>
+
+<head>
+<title>Presenter Notes</title>
+<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
+<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+<link rel="stylesheet" href="../css/presentation.css">
+</head>
+
+<body>
+
+<div id="presenter">Notes will be displayed here as you work through the slides.</div>
+
+</body>
+<script>
+var updateNote = function(e) {
+	if(e.key == 'storage-event') {
+		var newValue = localStorage.getItem('storage-event');
+		document.querySelector('div#presenter').innerHTML = newValue;
+	}
+}
+window.addEventListener('storage', updateNote, false);
+
+(window.addEventListener || window.attachEvent)(
+  (window.attachEvent && "on" || "") + "message", function (evt) {
+   	document.querySelector('div#presenter').innerHTML = localStorage.getItem('storage-event');			
+  },false);
+
+</script>
+</html>
