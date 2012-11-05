@@ -1,0 +1,33 @@
+
+School app
+	School calendar - holidays, major events, etc.
+		could pull json file web or maybe it would be static (coded in) with annual update to app
+	Sports - schedule, results, practices, requirements
+		This would really need to be a dynamic pull from web
+	Lunch menu
+		This would really need to be a dynamic pull from web
+	Facebook linked page to show photos, stream, etc as a tab in the app - dynamic pull from web
+	Twitter stream in a tab
+	Schools - list schools with addresses, maps - static
+	Student news
+		This would really need to be a dynamic pull from web
+	
+
+Scout camp app
+	Map of the camp (preferably with a You Are Here function) - static content
+	Weekly schedule 
+		This could be static (assuming all weeks offer same schedule) but a dynamic pull from web would be better
+	Announcements
+		This would really need to be a dynamic pull from web
+	Badge list with requirements - static
+	Counselor list - static, updated annually
+	Camp info - history, facilities, etc. - static
+
+
+
+Server side options:
+- host a json file on dropbox; generate with locally run html file
+- cms (plug in for WP for example)
+- acs, but would need to host web pages someplace, probably couldn't use a single instance for all schools
+
+923056157

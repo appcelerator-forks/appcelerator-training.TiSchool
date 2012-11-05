@@ -1,0 +1,6 @@
+Development notes (e.g. a graveyard of notes and thoughts that could or should go into these materials)
+
+Inline/web based code editor options for basic JS lesson
+	http://repl.it/
+	http://jsbin.com/
+	http://appc.me/learn/#step=1
