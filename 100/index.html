@@ -72,24 +72,24 @@
 				</section>
 
 				<section>
-					<h2 style="" class="l_prereq">Pre-requisites</h2>
-					<ul style="width:80%;">
-						<li class="l_prereq1">Programming basics &mdash; www.khanacademy.org/cs/tutorials/programming-basics</li>
-						<li class="l_prereq2">JavaScript basics &mdash; http://learn.appendto.com/lesson/javascript-101 &amp; 102</li>
-					</ul>
-					<div class="slidenote"><div class="l_slidenote_prereq">We strongly suggest you have students complete these prerequisites <i>prior</i> to the start of your class.</div></div>
-				</section>
-
-				<section>
 					<h2 style="" class="l_agenda">Agenda</h2>
 					<ul style="width:80%;">
 						<li class="l_agenda1">What is programming?</li>
-						<li class="l_agenda2">Languages and options</li>
+						<li class="l_agenda2">JavaScript building blocks</li>
 						<li class="l_agenda3">Common programming steps</li>
 						<li class="l_agenda4">Some basic terminology</li>
 						<li class="l_agenda5">Documentation is your friend</li>
 					</ul>
 					<div class="slidenote"><div class="l_slidenote_agenda">Assuming students have completed the prerequisites, the material here will be all review. Regardless, your goal here is simply to provide a high-level overview of programming.</div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_prereq">Pre-requisites</h2>
+					<ul style="width:80%;">
+						<li class="l_prereq1">Programming basics &mdash; www.khanacademy.org/cs/tutorials/programming-basics</li>
+						<li class="l_prereq2">JavaScript basics &mdash; http://learn.appendto.com/lesson/javascript-101 &amp; 102</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_prereq">We strongly suggest you have students complete these prerequisites <i>prior</i> to the start of your class. If they've done so, then this should serve simply as a quick review.</div></div>
 				</section>
 
 				<section>
@@ -134,14 +134,222 @@
 
 				<section>
 					<h2 style="" class="l_bldblocks">So, what are our building blocks?</h2>
-					<ul style="width:80%;">
-						<li class="l_bldblocks1 fragment">Statements ("commands")</li>
-						<li class="l_bldblocks2 fragment">Control statements ("loops")</li>
-						<li class="l_bldblocks3 fragment">Conditionals ("if/else")</li>
-						<li class="l_bldblocks4 fragment">Objects</li>
-						<li class="l_bldblocks5 fragment">APIs</li>
+					<ul style="width:80%;" class="fragment">
+						<li class="l_bldblocks1">Variables</li>
+						<li class="l_bldblocks2">Statements ("commands")</li>
+						<li class="l_bldblocks3">Conditionals &amp; Control Statements</li>
+						<li class="l_bldblocks4">Functions</li>
+						<li class="l_bldblocks5">Objects</li>
 					</ul>
-					<div class="slidenote"><div class="l_slidenote_bldblocks"></div></div>
+					<div class="slidenote"><div class="l_slidenote_bldblocks">You should have completed the pre-requisite exercises. So, you should know what all these constructs are and how you'd use them. We'll go through them quickly as review and to make sure everyone has at least a basic understanding of JavaScript</div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_datatypes">Data Types</h2>
+					<pre><code contenteditable>
+1 // integer (whole numbers)
+1.23456 // float (fractions)
+true // or false == boolean
+['one', 'two', 'three'] // array
+{ color: 'blue', size: 10 } // object
+null, undefined, NaN, Infinity // special types
+					</code></pre>
+
+					<div class="slidenote"><div class="l_slidenote_datatypes"></div></div>
+				</section>
+
+
+				<section>
+					<h2 style="" class="l_variables">Variables</h2>
+					<pre><code contenteditable>
+var x = 1;
+var y = 'foo'; // enclose strings in quotes
+var i = 0, j = 1, k = true; // declare multiple w/single statement
+y = 4; // reassigns y's value
+x = y; // put y's value into x, so x = ?
+ </code></pre>
+					<ul style="width:80%;">
+						<li class="l_var1">Always declare using <code>var</code> keyword</li>
+						<li class="l_var2">JavaScript doesn't care about data types</li>
+					</ul>
+
+					<div class="slidenote"><div class="l_slidenote_variables">Explain each of the examples. While <code>var</code> isn't strictly required, treat it as if it were. At this stage, students aren't ready for a discussion of variable scope and the subtlety that omitting var puts the variable into the global scope.</div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_statements">Statements</h2>
+					<pre><code contenteditable>
+var x = 100 * 2;
+var y = Math.round(22/7);
+// this is a comment
+/*
+  This is a
+  multi-line comment
+*/
+ </code></pre>
+					<ul style="width:80%;">
+						<li class="l_statements1">Expressions that create a result</li>
+						<li class="l_statements2">End with a semi-colon</li>
+					</ul>
+
+					<div class="slidenote"><div class="l_slidenote_statements"></div></div>
+				</section>
+
+				<section>
+				<section>
+					<h2 style="" class="l_controlstatement">Conditionals &amp; Control Statements</h2>
+					<ul style="width:80%;">
+						<li class="l_cstatments1">if/else</li>
+						<li class="l_cstatments2">For loops</li>
+						<li class="l_cstatments3">While loops</li>
+						<li class="l_cstatments4">Switch statements</li>
+					</ul>
+					<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png"/></div>
+					<div class="slidenote"><div class="l_slidenote_controlstatement"></div></div>
+				</section>
+
+				<section>
+					<h2 class="l_CLASSNAME">if/else</h2>
+					<div class="slidenote"><div class="l_slidenote_CLASSNAME"></div></div>
+					<pre><code contenteditable>
+if(somecondition) {
+  // do is condition is met
+} else if(someOtherCondition) {
+  // do stuff if someOtherCondition is met
+} else {
+  // do this if others aren't true
+}
+/* Comparison operators:
+  == vs ===  and != vs !==
+  < or > or <= or >=
+*/
+					</code></pre>
+					<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png"/></div>
+				</section>
+
+				<section>
+					<h2 class="l_forloops">For Loops</h2>
+					<div class="slidenote"><div class="l_slidenote_forloops"></div></div>
+					<pre><code contenteditable>
+for(var i=0; i < 100; i++) {
+  // do something 100 times
+}
+					</code></pre>
+					<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png"/></div>
+				</section>
+
+				<section>
+					<h2 class="l_whileloops">While Loops</h2>
+					<div class="slidenote"><div class="l_slidenote_whileloops"></div></div>
+					<pre><code contenteditable>
+while(somecondition) {
+	// do something till somecondition is no longer met
+}
+					</code></pre>
+					<ul style="width:80%;">
+						<li class="l_whileloop1">Make sure 'somecondition' will change and eventually be met or loop will run forever</li>
+					</ul>
+					<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png"/></div>
+				</section>
+
+				<section>
+					<h2 class="l_switch">Switch</h2>
+					<pre><code contenteditable>
+switch(variable) {
+  case value1:
+     // do something if variable == value1
+  break;
+  case value2:
+     // do something if variable == value2
+  break;
+  default:
+     // do something if none of the above are met
+  break;
+}
+					</code></pre>
+					<ul style="width:80%;">
+						<li class="l_switch1">Compact if/else statement</li>
+					</ul>
+
+					<div class="slidenote"><div class="l_slidenote_switch"></div></div>
+					<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png" style="-webkit-transform: rotate(180deg);"/></div>
+				</section>
+
+				</section>
+
+				<section>
+					<h2 style="" class="l_functions">Functions</h2>
+					<pre><code contenteditable>
+function sum(a, b) {
+  // do as many statements as needed
+  return a + b;
+}
+// then use like this:
+var total = sum(100, 200);
+					</code></pre>
+					<ul style="width:80%;">
+						<li class="l_functions1">Reusable chunks of code</li>
+						<li class="l_functions2">Arguments pass data to the function</li>
+						<li class="l_functions3"><code>return</code> a value at the end</li>
+					</ul>
+
+					<div class="slidenote"><div class="l_slidenote_functions"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_functionsc">Function Statements</h2>
+					<pre><code contenteditable>
+var sum = function(a, b) {
+  return a + b;
+}
+// then use like this:
+var total = sum(100, 200);
+					</code></pre>
+					<ul style="width:80%;">
+						<li class="l_functionsc1">Equivalent to other format</li>
+						<li class="l_functionsc2">Highlights that functions are 'first class citizens' in JavaScript</li>
+						<li class="l_functionsc3">You can pass a function as an argument to another function</li>
+					</ul>
+
+					<div class="slidenote"><div class="l_slidenote_functionsc"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_functioncallbacks">Function Callbacks</h2>
+					<pre><code contenteditable>
+var doCoolness = function(a, b, fn) {
+  return fn(a, b);
+}
+var sum = function(a, b) {
+  return a + b;
+}
+// then use like this:
+var total = doCoolness(100, 200, sum);
+					</code></pre>
+					<ul style="width:80%;">
+						<li class="l_functioncallbacks1">Great when doCoolness() might take a long time to run (like when accessing the network)</li>
+					</ul>
+
+					<div class="slidenote"><div class="l_slidenote_functioncallbacks"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_objects">Objects</h2>
+					<pre><code contenteditable>
+var cat = {
+  breed: 'tiger',
+  color: 'orange',
+  hasStripes: true,
+  growl: function() {
+     // make scary noise!
+  }
+}
+if(cat.hasStripes == true) {
+  cat.growl();
+}
+					</code></pre>
+
+					<div class="slidenote"><div class="l_slidenote_objects"></div></div>
 				</section>
 
 				<section>
@@ -155,6 +363,17 @@
 					<div class="slidenote"><div class="l_slidenote_dumb"></div></div>
 				</section>
 
+<!--
+Some slides to add here, or within this lesson:
+	* JavaScript - core vs. host environment (to show how browser provides some stuff, JS other, same with Titanium, Node, etc.)
+	* More on common programming steps:
+		- code, compile, deploy, test
+		- and then which of those is involved with JavaScript, Titanium
+		- related might be something like source code control - e.g. GitHub for purposes of this class
+	* Terminology:
+		properties, methods, source code, ??
+	* Documentation - use Appc docs as example, with screens, explain how to read them
+-->
 				<section>
 					<h1 class="l_qa_slide">Q&amp;A</h1>
 					<div class="slidenote"><div class="l_slidenote_qa"></div></div>
