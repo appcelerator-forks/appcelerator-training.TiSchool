@@ -1,6 +1,6 @@
 # Course Structure Suggestions
 
-How you structure the class is up to you, the teacher. But we recommend you follow a structure similar to the one below to create a dynamic, self-driven, and engaging experience.
+How you structure the class is up to you as the teacher. But we recommend you follow a structure similar to the one below to create a dynamic, self-driven, and engaging experience.
 
 The course materials include:
 
@@ -10,7 +10,23 @@ The course materials include:
 * An end of class, course-level project. (see below)
 * Links to references and online learning materials for deeper exploration of key concepts
 
-We suggest you use a mix of formal instruction (lecture) and self-directed exploratory learning (students working on their own or in a small group to discover solutions to challenges). Programming is a skill best learned by doing. Students won't learn by simply listening to a lecture or observing someone else's code. Thus, each week's materials include some materials for you to present. Plus some planned independent time for students to implement what you've taught. 
+We suggest you use a mix of formal instruction (lecture) and self-directed exploratory learning (students working on their own or in a small group to discover solutions to challenges). Programming is a skill best learned by doing. Students won't learn by simply listening to a lecture or observing someone else's code. Thus, each week's materials include some materials for you to present. Plus some planned independent time for students to implement what you've taught.
+
+## Pre-requisites
+
+To maximize the time available in class for teaching Titanium, we recommend you ask students to complete the following steps prior to the start of the course:
+
+* Programming basics -- students must have a fundamental understanding of programming. For that we recommend they: 
+** Visit http://www.khanacademy.org/cs/tutorials/programming-basics 
+** Create an account
+** Complete each of the nine tutorials
+* JavaScript -- students will need to know the basics of JavaScript to be productive with Titanium:
+** Visit http://learn.appendto.com/lesson/javascript-101 
+** Watch all seven videos in the JavaScript 101 section (total time is 41 minutes)
+** Watch all six videos in the JavaScript 102 section (total time is 42 minutes)
+* Titanium -- students should have a basic understanding of what Titanium is, and how it works.
+* Visit http://vimeopro.com/appcelerator/building-native-mobile-applications and watch the first video (00-Titanium Overview) which is 19 minutes long.
+
 
 ## End-of-class project
 

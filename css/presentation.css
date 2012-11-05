@@ -80,6 +80,9 @@ html {
 	background: -ms-radial-gradient(top, ellipse cover, #ddd 30%,#666 100%);
 	background: radial-gradient(top, ellipse cover, #ddd 30%,#666 100%);
 }
+body {
+	font-size: 20pt;
+}
 #reveal h1, 
 #reveal h2, 
 #reveal h3, 
@@ -87,9 +90,14 @@ html {
 	color: #9A0707;
 	text-shadow: 0.02em 0.02em 0.07em #666;
 }
+h1 { font-size: 4em !important; }
+h2 { font-size: 3.5em !important; }
+h3 { font-size: 3em !important; }
+h4 { font-size: 2em !important; }
+h5 { font-size: 1.9em !important; }
 p, div, li, td, h5 { color: #222 !important; font-family: 'Museo' !important; }
 section a { color: #222 !important; text-decoration:underline !important;}
-li { padding-bottom: 5px; }
+li { padding-bottom: 5px; font-size:0.95em; }
 
 #reveal pre code {
 	font-size: 1.5em !important;
