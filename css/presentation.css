@@ -55,13 +55,15 @@
 	bottom:0;
 	left:50%;
 	margin: 0;
-	background: rgba(0,0,0,0) !important;
+	background: rgba(255,255,255,0) !important;
 	border: 0px !important;
+	box-shadow: none !important;
 }
 .nestedarrow img {
 	margin: 0;
-	background: rgba(0,0,0,0) !important;
+	background: rgba(255,255,255,0) !important;
 	border: 0px !important;
+	box-shadow: none !important;
 	width: 50px;
 	height: 50px;
 	

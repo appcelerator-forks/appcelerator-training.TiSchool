@@ -46,6 +46,10 @@ Press right or left arrow keys to move forward/back in a presentation. Some slid
 
 Press the Spacebar to see a partial overview of the slides in a presentation.
 
+## How to teach this class
+
+Be sure to see the <a href='course_structure.md'>Course Structure</a> file for strategies for teaching this course.
+
 
 # Corrections and Contributions
 

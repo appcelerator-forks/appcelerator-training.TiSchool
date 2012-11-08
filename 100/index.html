@@ -76,20 +76,15 @@
 					<ul style="width:80%;">
 						<li class="l_agenda1">What is programming?</li>
 						<li class="l_agenda2">JavaScript building blocks</li>
-						<li class="l_agenda3">Common programming steps</li>
-						<li class="l_agenda4">Some basic terminology</li>
 						<li class="l_agenda5">Documentation is your friend</li>
 					</ul>
 					<div class="slidenote"><div class="l_slidenote_agenda">Assuming students have completed the prerequisites, the material here will be all review. Regardless, your goal here is simply to provide a high-level overview of programming.</div></div>
 				</section>
 
 				<section>
-					<h2 style="" class="l_prereq">Pre-requisites</h2>
-					<ul style="width:80%;">
-						<li class="l_prereq1">Programming basics &mdash; www.khanacademy.org/cs/tutorials/programming-basics</li>
-						<li class="l_prereq2">JavaScript basics &mdash; http://learn.appendto.com/lesson/javascript-101 &amp; 102</li>
-					</ul>
-					<div class="slidenote"><div class="l_slidenote_prereq">We strongly suggest you have students complete these prerequisites <i>prior</i> to the start of your class. If they've done so, then this should serve simply as a quick review.</div></div>
+					<h2 style="" class="l_whatis">What Is Programming?</h2>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
+					<div class="slidenote"><div class="l_slidenote_whatis"></div></div>
 				</section>
 
 				<section>
@@ -133,8 +128,46 @@
 				</section>
 
 				<section>
+					<h2 style="" class="l_progsteps">Programming Steps</h2>
+					<ol style="width:80%;">
+						<li class="l_progsteps1">Write your source code</li>
+						<li class="l_progsteps2">Compile / build</li>
+						<li class="l_progsteps3">Deploy</li>
+						<li class="l_progsteps4">Test</li>
+					</ol>
+					<div class="slidenote"><div class="l_slidenote_progsteps">Explain what happens at each step.<br/><br/>Note: Most times, you don't compile JavaScript. However, there are similar steps. In a browser environment, you might minimize and obfuscate your code. In Titanium, you do compile your app, which combines your JavaScript code with the Titanium-provided components and calls the native compilation tools.</div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_dumb">Let's be clear ... computers are dumb</h2>
+					<ul style="width:80%;" class="fragment">
+						<li class="l_dumb1">Computers will do exactly what you say</li>
+						<li class="l_dumb2">They don't interpret, think, guess, or read between the lines</li>
+						<li class="l_dumb3">They'll do something as many times as you say (without complaining)</li>
+						<li class="l_dumb4">When you stop telling them what to do, they stop doing anything</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_dumb">So, of the preceding programming steps, testing is perhaps the most important. In the real world, a company often employs many people to test their software. Then they'll ask customers or key partners to futher test the software before it's finally released to the general user base.</div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_prereq">Pre-requisites</h2>
+					<ul style="width:80%;">
+						<li class="l_prereq1">Programming basics &mdash; www.khanacademy.org/cs/tutorials/programming-basics</li>
+						<li class="l_prereq2">JavaScript basics &mdash; http://learn.appendto.com/lesson/javascript-101 &amp; 102</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_prereq">We strongly suggest you have students complete these prerequisites <i>prior</i> to the start of your class. If they've done so, then this whole lesson, particularly the next section, should serve simply as a quick review.</div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_jsblocks">JavaScript Building Blocks</h2>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
+					<div class="slidenote"><div class="l_slidenote_jsblocks"></div></div>
+				</section>
+
+				<section>
 					<h2 style="" class="l_bldblocks">So, what are our building blocks?</h2>
 					<ul style="width:80%;" class="fragment">
+						<li class="l_bldblocks0">Data</li>
 						<li class="l_bldblocks1">Variables</li>
 						<li class="l_bldblocks2">Statements ("commands")</li>
 						<li class="l_bldblocks3">Conditionals &amp; Control Statements</li>
@@ -155,7 +188,7 @@ true // or false == boolean
 null, undefined, NaN, Infinity // special types
 					</code></pre>
 
-					<div class="slidenote"><div class="l_slidenote_datatypes"></div></div>
+					<div class="slidenote"><div class="l_slidenote_datatypes">Because JavaScript is type-flexible, our biggest concern here is learning the terminology and understanding the complex data types: arrays and objects, plus the special types.</div></div>
 				</section>
 
 
@@ -170,10 +203,10 @@ x = y; // put y's value into x, so x = ?
  </code></pre>
 					<ul style="width:80%;">
 						<li class="l_var1">Always declare using <code>var</code> keyword</li>
-						<li class="l_var2">JavaScript doesn't care about data types</li>
+						<li class="l_var2">JavaScript doesn't care about data types (but you should)</li>
 					</ul>
 
-					<div class="slidenote"><div class="l_slidenote_variables">Explain each of the examples. While <code>var</code> isn't strictly required, treat it as if it were. At this stage, students aren't ready for a discussion of variable scope and the subtlety that omitting var puts the variable into the global scope.</div></div>
+					<div class="slidenote"><div class="l_slidenote_variables">Explain each of the examples. While <code>var</code> isn't strictly required, treat it as if it were. At this stage, students probably aren't ready for a discussion of variable scope and the subtlety that omitting var puts the variable into the global scope. Our suggestion is that you impress on them that using 'var' is critical (even if not technically required).</div></div>
 				</section>
 
 				<section>
@@ -278,6 +311,7 @@ switch(variable) {
 				</section>
 
 				<section>
+				<section>
 					<h2 style="" class="l_functions">Functions</h2>
 					<pre><code contenteditable>
 function sum(a, b) {
@@ -292,6 +326,7 @@ var total = sum(100, 200);
 						<li class="l_functions2">Arguments pass data to the function</li>
 						<li class="l_functions3"><code>return</code> a value at the end</li>
 					</ul>
+					<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png"/></div>
 
 					<div class="slidenote"><div class="l_slidenote_functions"></div></div>
 				</section>
@@ -306,10 +341,12 @@ var sum = function(a, b) {
 var total = sum(100, 200);
 					</code></pre>
 					<ul style="width:80%;">
-						<li class="l_functionsc1">Equivalent to other format</li>
+						<li class="l_functionsc0">Equivalent to other format</li>
+						<li class="l_functionsc1">You're defining a variable that will hold a function</li>
 						<li class="l_functionsc2">Highlights that functions are 'first class citizens' in JavaScript</li>
 						<li class="l_functionsc3">You can pass a function as an argument to another function</li>
 					</ul>
+					<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png"/></div>
 
 					<div class="slidenote"><div class="l_slidenote_functionsc"></div></div>
 				</section>
@@ -318,6 +355,8 @@ var total = sum(100, 200);
 					<h2 style="" class="l_functioncallbacks">Function Callbacks</h2>
 					<pre><code contenteditable>
 var doCoolness = function(a, b, fn) {
+  // something here that takes a long time to finish, such
+  // as getting data from the network
   return fn(a, b);
 }
 var sum = function(a, b) {
@@ -327,10 +366,12 @@ var sum = function(a, b) {
 var total = doCoolness(100, 200, sum);
 					</code></pre>
 					<ul style="width:80%;">
-						<li class="l_functioncallbacks1">Great when doCoolness() might take a long time to run (like when accessing the network)</li>
+						<li class="l_functioncallbacks1">Great when doCoolness() might take a long time to run (like when accessing the network).</li>
 					</ul>
+					<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png" style="-webkit-transform: rotate(180deg);"/></div>
 
-					<div class="slidenote"><div class="l_slidenote_functioncallbacks"></div></div>
+					<div class="slidenote"><div class="l_slidenote_functioncallbacks">Callbacks are a critical part of modern JavaScript programming. They are the primary pattern for dealing with asynchronous operations, such as network access, geolocation lookups, even database operations.</div></div>
+				</section>
 				</section>
 
 				<section>
@@ -353,39 +394,63 @@ if(cat.hasStripes == true) {
 				</section>
 
 				<section>
-					<h2 style="" class="l_dumb">Let's be clear ... computers are dumb</h2>
+					<h2 style="" class="l_corevshost">JavaScript in Pieces</h2>
 					<ul style="width:80%;">
-						<li class="l_dumb1 fragment">Computers will do exactly what you say</li>
-						<li class="l_dumb2 fragment">They don't interpret, think, guess, or read between the lines</li>
-						<li class="l_dumb3 fragment">They'll do something as many times as you say (without complaining)</li>
-						<li class="l_dumb4 fragment">When you stop telling them what to do, they stop doing anything</li>
+						<li class="l_corevshost1">Core JavaScript
+							<ul style="margin-left:50px;width:75%;">
+								<li>Core operators</li>
+								<li>Objects like Date and Math</li>
+								<li>Overall language rules &amp; syntax</li>
+							</ul></li>
+						<li class="l_corevshost2">Host environment adds its own objects
+							<ul style="margin-left:50px;width:75%;">
+								<li>Web browser (DOM)</li>
+								<li>Node.js (server-side functionality)</li>
+								<li>Titanium (Ti object for mobile components)</li>
+							</ul></li>
+						<li class="l_corevshost3">Libraries you import (APIs)</li>
 					</ul>
-					<div class="slidenote"><div class="l_slidenote_dumb"></div></div>
+					<div class="slidenote"><div class="l_slidenote_corevshost">JavaScript is implemented in various environments. And the features and functionality it offers vary depending on the environment. The core JavaScript features are the same everywhere. This includes core operators, statements, and syntax, plus the core objects like Date and Math. The host environment adds new objects. For example, JavaScript in the browser has access to objects that represent the web page and web browser. Titanium adds the Ti object to core JavaScript, giving you access to mobile features. But in Titanium, you don't have access to the DOM objects.</div></div>
 				</section>
 
-<!--
-Some slides to add here, or within this lesson:
-	* JavaScript - core vs. host environment (to show how browser provides some stuff, JS other, same with Titanium, Node, etc.)
-	* More on common programming steps:
-		- code, compile, deploy, test
-		- and then which of those is involved with JavaScript, Titanium
-		- related might be something like source code control - e.g. GitHub for purposes of this class
-	* Terminology:
-		properties, methods, source code, ??
-	* Documentation - use Appc docs as example, with screens, explain how to read them
--->
+				<section>
+					<h2 style="" class="l_docs">Documentation</h2>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
+					<div class="slidenote"><div class="l_slidenote_docs"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_documentation">Documentation is Your Friend</h2>
+				    <img src="images/docs1.png" style="width:800px;"/><br/>
+				    <img src="images/docs1overlay.png" style="width:800px;position:relative;top:-300px; box-shadow: none;" class="fragment"/>
+
+					<div class="slidenote"><div class="l_slidenote_documentation">You can get a lot of information from a documentation page. Read it carefully, and look for patterns. <strong>Click to show overlay</strong> then explain each of the sections of information that is shown.</div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_documentation">Documentation - More Details</h2>
+				    <img src="images/docs2.png" style="width:800px;"/><br/>
+				    <img src="images/docs2overlay.png" style="width:800px;position:relative;top:-520px; box-shadow: none;" class="fragment"/>
+
+					<div class="slidenote"><div class="l_slidenote_documentation">Many of the documentation pages include sample code. They all will give details about the properties, methods, and event listeners that the object supports.</div></div>
+				</section>
+
+
 				<section>
 					<h1 class="l_qa_slide">Q&amp;A</h1>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
 					<div class="slidenote"><div class="l_slidenote_qa"></div></div>
 				</section>
 				
 				<section>
-					<h2 class="l_lab">Lab Objectives</h2>
+					<h2 class="l_lab">Homework</h2>
 					<ul>
-						<li class="l_labobjective1">Lab objective 1</li>
-						<li class="l_labobjective2">Lab objective 2</li>
-						<li class="l_labobjective3">Lab objective 3</li>
+						<li class="l_labobjective1">Homework objective 1</li>
+						<li class="l_labobjective2">Homework objective 2</li>
+						<li class="l_labobjective3">Homework objective 3</li>
 					</ul>
+					<p class="l_homework" style="margin-top: 50px;">Assignment URL: (fill_in_here)</p>
+
 					<div class="slidenote"><div class="l_slidenote_lab"></div></div>
 				</section>
 

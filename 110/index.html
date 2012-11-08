@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Introduction</title>
+		<title>How Titanium Works</title>
 		<meta name="description" content="Introduction, Building Native Mobile Apps With Appcelerator Titanium">
     	<meta name="author" content="Appcelerator, Inc." />
 		
@@ -61,8 +61,7 @@
 			<div class="slides">
 				
 				<section>
-					<h1 style="margin-top:100px;" class="l_lessontitle">TITLE</h1>
-					<h5 class="l_subtitle">SUBTITLE</h5>
+					<h1 style="margin-top:100px;" class="l_lessontitle">How Titanium Works</h1>
 					<script>
 						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
 						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
@@ -72,23 +71,235 @@
 				</section>
 
 				<section>
-					<h2 style="" class="l_CLASSNAME">SLIDE_TITLE</h2>
+					<h2 style="" class="l_agenda">Agenda</h2>
+					<ul style="width:80%;">
+						<li class="l_agenda1">Mobile Development Challenges</li>
+						<li class="l_agenda2"></li>
+						<li class="l_agenda3"></li>
+						<li class="l_agenda4"></li>
+					</ul>
+
+					<div class="slidenote"><div class="l_slidenote_agenda"></div></div>
+				</section>
+
+				<section>
+					<section>
+						<h1 style="" class="l_classname">Development Challenges</h1>
+						<ul style="float:left; width:500px; margin-top:40px; font-size:40px;">
+							<li>Many OSes</li>
+							<li>Varying features and APIs</li>
+							<li>User expectations vary</li>
+						</ul>
+						<div style="float:right; width:350px; margin-top:20px;">
+							<img src="images/ios.png" style="height:100px;"/>
+							<img src="images/android_transparent.png" style="height:150px;"/>
+							<img src="images/bb.png" style="height:150px;"/>
+							<img src="images/html5.png" style="height:150px;"/>
+						</div>
+						<div class="slidenote"><div class="l_slidenote_MATCH-SLIDE-CLASSNAME"></div></div>
+						<div class="nestedarrow"><img width="178" height="238" src="images/arrow.png" class="nestedarrow"/></div>
+					</section>
+					<section>
+						<h1 style="" class="l_devices">Devices, Devices, Devices!</h1>
+						<p style="float:left;" class="l_somany">So many native platforms...</p>
+						<div style="clear:both;">
+							<img style="height:150px;" src="images/devices/androidtablet.png"/>
+							<img style="height:150px;" src="images/devices/iphone.png"/>
+							<img style="height:150px;" src="images/devices/nook.png" />
+							<img style="height:150px;" src="images/devices/android.png"/>
+							<img style="height:150px;" src="images/devices/ipad.png"/>
+						</div>
+						<br>
+						<p style="float:right;" class="l_sofew">Can you do it all?</p>
+						<div class="nestedarrow"><img width="178" height="238" src="images/arrow.png" class="nestedarrow"/></div>
+						<div class="slidenote"><div class="l_slidenote_MATCH-SLIDE-CLASSNAME"></div></div>
+					</section>
+					<section>
+						<h2 style="" class="l_scale">Traditional Approach = Separate Teams</h2>
+						<img src="images/scale.png" height="400"/>
+						<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png" style="-webkit-transform: rotate(180deg);"/></div>
+						<div class="slidenote"><div class="l_slidenote_scale">Typically, companies who want to write programs for multiple platforms need separate teams for each target. That means lots of money. Individuals who want to do this have to learn multiple programming languages and </div></div>
+					</section>
+				</section>
+
+
+				<section>
+					<h2 style="" class="l_approach">Web Wrappers</h2>
+					<ul style="width:80%;">
+						<li>PhoneGap, AppMobi, Rhomobile, TriggerIO, etc.</li>
+						<li>All suffer from:
+							<ul style="margin-left:50px;">
+								<li>Non-native UI (your app is built with HTML)</li>
+								<li>Poor performance</li>
+								<li>Very limited access to hardware, like the camera, GPS</li>
+								<li>No code security</li>
+								<li>Apple rejections</li>
+							</ul></li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_approach">A common solution suggested for creating mobile apps that run on many platforms is to use a web wrapper, like PhoneGap. There are many competing products that take the same approach. They all have serious downsides. Importantly, you don't get to use native buttons, tables, and other components when building your app. You have limited access to all the hardware features that make for exciting apps. And your code can easily be viewed and stolen.</div></div>
+				</section>
+
+				<section>
+					<p style="text-align:left !important;margin-left:0;">Besides, we don't want to</p>
+					<h1 style="margin-top: 100px;" class="l_suck">"Write once,<br><span style="color:#a00;">suck</span> everywhere"</h1>
+					<p style="font-size:18px; margin-top: 80px; float:right;"><sup>*</sup>Loren Brichter, author of "Tweetie" Twitter client for iOS</p>
+				</section>
+
+
+				<section>
+					<h1 style="margin-top:50px;">Enter Titanium Mobile</h1>
+					<ul style="width:80%; margin-top:20px;">
+						<li class="l_nativeperf">The only cross-platform mobile toolkit with native UI and performance</li>
+						<li class="l_nativehw">With access to camera, GPS, and other device hardware</li>
+						<li class="l_foss">Free and open source under the Apache 2.0 license</li>
+						<li class="l_supports">Supports iOS, Android, and Mobile Web with Windows 8 and BlackBerry 10 in 2013</li>
+					</ul>
+				</section>
+
+				<section id="howitworks">
+					<h1 class="l_howtitaniumworks">How Titanium Works</h1>
+			    	<ul style="width:80%;">
+			    		<li class="l_youwritejavascript">You write Javascript</li>
+			    		<li class="l_titaniummaps">Titanium maps your JavaScript code to native components</li>
+			    		<li class="l_theformula">Communication is two-way across the bridge</li>
+			    	</ul>
+				    <img src="images/howTiworks1.png" height="400"/><br/>
+				    <img src="images/howTiworks2.png" height="400" class="fragment" style="position:relative; top:-445px"/>
+					<div class="slidenote"><div class="l_slidenote_howtitaniumworks">The key points to understand are:<br/><ul><li>You write your mobile app in JavaScript</li><li>When you create something, like a button, in JavaScript, Titanium creates a native equivalent for you</li><li>When you modify the button (set it's title or color), Titanium maps that change to native land</li><li>When the user clicks the button, your JavaScript code can react</li></ul></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_howtiworks">Titanium Key Points:</h2>
+					<ul style="width:80%;">
+						<li class="l_howtiworks1">You write in JavaScript</li>
+						<li class="l_howtiworks2">There's a platform-specific bridge and set of native components<br/>(so your source code can run on multiple platforms)</li>
+						<li class="l_howtiworks3">Your JavaScript is still there and running on the user's device</li>
+						<li class="l_howtiworks4">Your app is compiled (so your code is secure)</li>
+						<li class="l_howtiworks5">But you still can't ignore platform differences</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_howtiworks"></div></div>
+				</section>
+
+
+				<section>
+					<h1 style="" class="l_apis">Titanium Provides APIs For:</h1>
+					<ul style="width:80%;">
+						<li class="l_BULLET1">UI components &mdash; add native buttons, pickers, tables and more to your apps</li>
+						<li class="l_BULLET2">Networking &mdash; HTTP/HTTPS, sockets, Bonjour</li>
+						<li class="l_BULLET3">Local storage &mdash; file, database, app properties</li>
+						<li class="l_BULLET4">Camera, GPS, accelerometer</li>
+						<li>Social APIs &mdash; Facebook, YQL, Twitter, more</li>
+						<li>Extensible &amp; modular to add on custom functionality</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_MATCH-SLIDE-CLASSNAME"></div></div>
+				</section>
+
+				<section>
+					<h1 style="" class="l_acs">Appcelerator Cloud Services</h1>
+					<ul style="width:80%;">
+						<li class="l_acs1">Add a server back-end without any server-side coding</li>
+						<li class="l_acs2">Pre-built APIs for users, checkins, reviews, etc.</li>
+						<li class="l_acs3">Photo storage &mdash; build your own Instagram!</li>
+						<li class="l_acs4">Free tier and pay-as-you-go</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_acs">You could use ACS to share data between users of your app -- say, to share tweet-like messages or Instagram-like photos.</div></div>
+				</section>
+
+				<section>
+					<h1 style="" class="l_classname">You Can Build Apps For: </h1>
+					<ul style="width:80%;">
+						<li class="l_BULLET1">iOS &mdash; iPhone, iPad, iPod Touch</li>
+						<li class="l_BULLET2">Android &mdash; handsets, tablets, Google TV</li>
+						<li class="l_BULLET3">Mobile Web &mdash; HTML5 web apps from the same code</li>
+						<li class="l_BULLET4">Blackberry and Windows Phone in the works</li>
+					</ul>
 					<div class="slidenote"><div class="l_slidenote_MATCH-SLIDE-CLASSNAME"></div></div>
 				</section>
 
 
 				<section>
+					<section>
+						<h1 style="" class="l_code">What's the code like?</h1>
+						<div class="nestedarrow"><img width="178" height="238" src="images/arrow.png" class="nestedarrow"/></div>
+						<div class="slidenote"><div class="l_slidenote_code"></div></div>
+					</section>
+
+					<section>
+						<h1 style="" class="l_objc">Objective-C</h1>
+						<img src="images/alert_ios.png" style="width:200px;float:right;"/>
+<pre style="width:700px;float:left;"><code contenteditable>
+// Objective-C
+UIAlertView *alert = [[UIAlertView alloc]
+   initWithTitle:@"Alert" 
+   message:@"Hello World" 
+   delegate:nil 
+   cancelButtonTitle:@"OK"
+   otherButtonTitles:nil];
+[alert show];
+[alert release];
+
+</code></pre>
+						<div class="nestedarrow"><img width="178" height="238" src="images/arrow.png" class="nestedarrow"/></div>
+						<div class="slidenote"><div class="l_slidenote_objc">Let's start by seeing what the native code looks like. This is Objective-C code to create the alert dialog box shown here.</div></div>
+					</section>
+
+					<section>
+						<h1 style="" class="l_java">Java/Android</h1>
+						<img src="images/alert_android.png" style="width:200px;float:right;"/>
+<pre style="width:800px;float:left;"><code contenteditable>
+// Java/Android
+AlertDialog.Builder builder = new AlertDialog.Builder(this);
+builder.setMessage("Hello World")
+   .setCancelable(false)
+   .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+      public void onClick(DialogInterface dialog, int id) {
+         MyActivity.this.finish();
+      }
+   });
+AlertDialog alert = builder.create();
+
+</code></pre>
+						<div class="nestedarrow"><img width="178" height="238" src="images/arrow.png" class="nestedarrow"/></div>
+						<div class="slidenote"><div class="l_slidenote_java">And this is the Java code you'd use to create an Android alert dialog.</div></div>
+					</section>
+
+					<section>
+						<h1 style="" class="l_ticode">Titanium</h1>
+<pre style="width:700px;"><code contenteditable>
+alert('Hello World');
+
+</code></pre>
+<img src="images/alert_ios.png" style="height:150px;"/> <img src="images/alert_android.png" style="height:150px;"/>
+						<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png" style="-webkit-transform: rotate(180deg);"/></div>
+						<div class="slidenote"><div class="l_slidenote_ticode">Finally, here is the Titanium code. And remember, it will create an alert dialog box on whatever platform you build for: iOS, Android, Mobile Web, etc.<br/><br/>Our mission in the rest of the course will be to learn how to write that JavaScript.</div></div>
+					</section>
+
+				</section>
+
+				<section>
+					<h1 class="l_tour">Let's Take A Tour</h1>
+					<p class="l_tourpara">Studio, a default project, and building for the simulator/emulator</p>
+
+					<img src="../images/robot.png" height='300' style="margin-top:40px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
+					<div class="slidenote"><div class="l_slidenote_tour">At this time, you should switch to Titanium Studio. Create a default Alloy project. Point out the key files and directories, but don't spend very much time talking about the specifics or details. This is just a high-level tour. Then, build the project to run in the simulator or emulator.</div></div>
+				</section>
+
+
+				<section>
 					<h1 class="l_qa_slide">Q&amp;A</h1>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
 					<div class="slidenote"><div class="l_slidenote_qa"></div></div>
 				</section>
 				
 				<section>
-					<h2 class="l_lab">Lab Objectives</h2>
+					<h2 class="l_lab">Homework</h2>
 					<ul>
-						<li class="l_labobjective1">Lab objective 1</li>
-						<li class="l_labobjective2">Lab objective 2</li>
-						<li class="l_labobjective3">Lab objective 3</li>
+						<li class="l_labobjective1">Homework objective 1</li>
+						<li class="l_labobjective2">Homework objective 2</li>
+						<li class="l_labobjective3">Homework objective 3</li>
 					</ul>
+					<p class="l_homework" style="margin-top: 50px;">Assignment URL: (fill_in_here)</p>
+
 					<div class="slidenote"><div class="l_slidenote_lab"></div></div>
 				</section>
 
