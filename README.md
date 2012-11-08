@@ -48,7 +48,7 @@ Press the Spacebar to see a partial overview of the slides in a presentation.
 
 ## How to teach this class
 
-Be sure to see the <a href='TiSchool/course_structure.md'>Course Structure</a> file for strategies for teaching this course.
+Be sure to see the <a href='https://github.com/appcelerator-training/TiSchool/blob/master/course_structure.md'>Course Structure</a> file for strategies for teaching this course.
 
 
 # Corrections and Contributions
