@@ -1,0 +1,345 @@
+<!doctype html>  
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Creating the User Interface</title>
+		<meta name="description" content="Introduction, Building Native Mobile Apps With Appcelerator Titanium">
+    	<meta name="author" content="Appcelerator, Inc." />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
+		<link rel="stylesheet" href="../css/magula.css">
+		<link rel="stylesheet" href="../css/presentation.css">
+		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
+		<script type="text/javascript" src="i18n/localizations.js"></script>
+		<script>
+		function loadStyleSheet(url){
+		    if(document.createStyleSheet) {
+		        try {document.createStyleSheet(url);} catch (e) { }
+		    }
+		    else{
+		        var css;
+		        css         = document.createElement('link');
+		        css.rel     = 'stylesheet';
+		        css.type    = 'text/css';
+		        css.media   = "all";
+		        css.href    = url;
+		        document.getElementsByTagName("head")[0].appendChild(css);
+		    }
+		}
+		var browserlang = document.documentElement.lang || String.locale || 'en-US';
+		loadStyleSheet('../css/'+browserlang+'.css');
+		</script>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/print.css" media="print">
+	</head>
+	
+	<body>
+		<div id="reveal">	
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<!--
+				SLIDE INSTRUCTIONS:
+					- Set the <title> tag to this lesson's US English title
+					- Set the <meta description tag to the US English course & lesson title
+					- Add one <section></section> for each slide. Slides can contain most any valid HTML
+					- Each text tag (<p> or <li> or <h1> etc.) must have a class name that begins with
+						"l_" and is unique. Each of those class names must be added to the i18n/localizations.js
+						file and their values must be set equal to the US English version of the strings. That 
+						file is used for translation and its contents OVERRIDES the text in this file.
+					- Each slide must have a <div class="slidenote"></div> container, which can be empty. These
+						are used for presenter notes. They also must be given unique "l_" classnames and strings
+						provided in the localizations.js file.
+					- Please use inline CSS on the slides to size & arrange contents.
+					- Graphics should be placed in the images folder and cropped/sized appropriately.
+					- Assume a 1024 x 768 display resolution
+					- A link to the index.html for each lesson must be added in order to the coursename/index.html
+						title slide.
+			-->
+			
+			
+			<div class="slides">
+				
+				<section>
+					<h1 style="margin-top:100px;" class="l_lessontitle">Creating the User Interface</h1>
+					<script>
+						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
+						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+					</script>
+				<div class="slidenote"><div class="l_slidenote_titleslide"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_agenda">Agenda</h2>
+					<ul style="width:80%;">
+						<li class="l_agenda1">UX and UI Design</li>
+						<li class="l_agenda2">Units, Positioning, and more</li>
+						<li class="l_agenda3">Events and User Interaction</li>
+						<li class="l_agenda4"></li>
+					</ul>
+
+					<div class="slidenote"><div class="l_slidenote_agenda"></div></div>
+				</section>
+
+
+				<section>
+					<h2 style="" class="l_uxui">User Experience / User Interface</h2>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
+					<div class="slidenote"><div class="l_slidenote_uxui"></div></div>
+				</section>
+
+
+				<section>
+					<h2 class="l_ux_basics">What is UX?</h2>
+					<p class="l_ux_image"><img src='images/basics-ux.png' style='margin-top:40px;height:550px;'/></p>				
+					<div class="slidenote"><div class="l_slidenote_ux_basics">UX, or user experience, is all about how your app works. Not what it looks like. Think about your user and the way they'll use your app. How do screens flow from one to another? Are buttons in the right place? Are you showing too much or too little information?<br><br>The 3 examples<br><ul><li>Tweet: confusing options and actions</li><li>App on left: too much info, too much in app, controls poorly laid out -- there's no flow or logical indication of what comes first</li><li>Dialog: not a mobile app, but still poor UX &mdash; It asks users to select command-line switches. If user knows what those switches would be used for, they'd be typing at console. If they don't, then the dialog doesn't give appropriate info.</li></ul></div>
+				</div></section>
+
+				<section>
+					<h2 class="l_critial_questions">Critical Questions</h2>
+					<p align="center" class="l_can_you">You need to answer the following:</p><br>
+					<p align="center" class="l_what_problem">What problem(s) am I solving?</p><br>
+					<p align="center" class="l_who">Who are my key users?</p><br>
+					<p align="center" class="l_what_needs">What are their needs?</p>
+					<div class="slidenote"><div class="l_slidenote_critial_questions">When developing any application you need to ask these fundamental questions. These questions form the foundation atop which you build your application. If a feature doesn't address a user's need, or will serve only a few users, leave it out! </div>
+				</div></section>
+
+				<section>
+					<h2 class="l_window_nav">Sketch it!</h2>
+					<p class="l_windownav_image"><img src="images/sketchit.png" style="margin-top:50px;height:440px;padding:20px;"/></p>
+					<div class="slidenote"><div class="l_slidenote_window_nav">When designing your app, sketch it out. You can use a simple notepad. Index (3 by 5) cards are pretty close to the size of a mobile phone. You can sketch each screen on a card. Then, flip through the deck to get a general sense of how your app will flow. You can even share the cards with others to see what they think of the design and flow.</div>
+				</div></section>
+
+
+				<section>
+					<h2 style="" class="l_ui">User Interface (UI)</h2>
+					<div class="slidenote"><div class="l_slidenote_ui"></div></div>
+				</section>
+
+				<section>
+					<h2 class="l_iOS_components">iOS User Interface Components</h2>
+					<p><img src="images/ios-components.png" style="margin-top:0px;height:420px;align:right"></p>
+					<div class="slidenote"><div class="l_slidenote_iOS_components">Briefly introduce the key iOS user interface components especially for the Android users in the class</div></div>
+				</section>
+				
+				<section>
+					<h2 class="l_android_components">Android User Interface Components</h2>
+					<p><img src="images/android-components.png" style="margin-top:0px;height:420px;align:right"></p>
+					<div class="slidenote"><div class="l_slidenote_android_components">Briefly introduce the key Android user interface components especially for the iOS users in the class</div></div>
+				</section>
+
+
+
+				<section>
+					<h2 style="" class="l_units">Units, Positioning, and More</h2>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
+					<div class="slidenote"><div class="l_slidenote_units"></div></div>
+				</section>
+
+				<section>
+					<h2 class="l_units">Units</h2>
+					<p align="left" class="l_defns">Definitions: dip = display-independent pixels == 'points'<br/>System units - on Android = pixels; on iOS = dip</p>
+					<p align="left" class="l_absmeasures">Absolute measurements: px (pixels), dp/dip, mm, cm, in</p>
+					<p align="left" class="l_relmeasures">Relative measurements: % = percent of the parent's height or width</p>
+<pre><code contenteditable class="l_unitcode">
+var view = Ti.UI.createView({
+  /* You would not normally mix units like this */
+  top: '10mm',
+  left: '5px',
+  width: '30%',
+  height: 50 /* default system units are used here */
+});
+
+</code></pre>
+					<div class="slidenote"><div class="l_slidenote_units">Can set a default unit in tiapp.xml<br/>See wiki for how-to</div></div>
+				</section>
+
+				<section>
+					<h2 class="l_coordinates">Coordinates Grid</h2>
+					<p align="left" class="l_coords1">iPhone (original or Retina) - 320 by 480 point grid</p>
+					<p align="left" class="l_coords2">iPad (original or Retina) - 1024 by 768 grid</p>
+					<div align="left" class="l_coords3">Android sizes vary:<br/><ul style="align:left;margin-left:70px;"><li>HVGA = 320 by 480 px</li><li>WVGA800 = 480 by 800 px</li><li>WVGA854 = 480 by 854 px</li></ul></div>
+					<div class="slidenote"><div class="l_slidenote_coordinates">You can use dp/dip units on Android to achieve the same density independent grid as is default on iOS.</div></div>
+				</section>
+
+				<section>
+					<h2 class="l_positioning">Positioning</h2>
+					<img src="images/layout.png" style="float:right;height:400px;">
+					<ul style="text-align:left;width:70%;float:left;">
+						<li class="l_position1"><code>top</code> and <code>left</code></li>
+						<li class="l_position2"><code>bottom</code> and <code>right</code></li>
+						<li class="l_position3"><code>center</code></li>
+						<li class="l_position4"><code>size</code> provides <em>rendered</em> dimensions</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_positioning"></div></div>
+				</section>
+
+				
+				<section>
+					<h2 class="l_view_hierarchy">Layout modes</h2>
+					<ul style="text-align:left;width:90%;">
+						<li class="l_absolute">Absolute</li>
+						<li class="l_vertical">Vertical</li>
+						<li class="l_horizontal">Horizontal</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_view_hierarchy">Absolute &mdash; relative to parent not screen Vertical &amp; horizontal &mdash; apply to parent object &mdash; we'll see examples in upcoming slides</div></div>
+				</section>
+				
+				<section>
+					<h2 class="l_absolute_layout">Absolute Layout</h2>
+					<p><img src="images/absolute-layout-snippet.png" style="margin-top:0px;height:220px;align:left"></p>
+					<p><img src="images/window-layout.png" style="margin-top:0px;height:220px;align:right"></p>
+					<div class="slidenote"><div class="l_slidenote_absolute_layout">We have here a window with a couple UI elements<br>The button is positioned 170 points from the parent's top edge</div></div>
+				</section>
+				
+				<section>
+					<h2 class="l_absolute_layout">Absolute Layout</h2>
+					<p><img src="images/absolute-layout-snippet-2.png" style="margin-top:0px;height:220px;align:left"></p>
+					<p><img src="images/window-layout-2.png" style="margin-top:0px;height:220px;align:right"></p>
+					<div class="slidenote"><div class="l_slidenote_absolute_layout_2">Absolute, left 30 points from left edge</div></div>
+				</section>
+
+				<section>
+					<h2 class="l_vertical_layout">Vertical Layout</h2>
+					<p><img src="images/vertical-layout.png" style="margin-top:0px;height:420px;align:left"></p>
+					<div class="slidenote"><div class="l_slidenote_vertical_layout">Parent object has the Vertical layout<br>Child object's positions are then in relation to each other within the parent</div></div>
+				</section>
+
+				<section>
+					<h2 class="l_auto">'Auto' Behaviors</h2>
+					<ul style="text-align:left;width:90%;">
+						<li class="l_auto1">Deprecated - use Ti.UI.SIZE or Ti.UI.FILL instead</li>
+						<li class="l_auto2">SIZE: buttons, labels, images, text fields and areas</li>
+						<li class="l_auto3">FILL: windows, views, tables, webviews</li>
+						<li class="l_auto4">Some are mixed: table rows - FILL for width and SIZE for height</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_auto"></div>Used to set 'auto' as value for height or width and Ti would 'figure it out'<br/>But that was inconsistent across platforms and view components<br/>You can now be more explicity by specifying FILL (fills parent) or SIZE (sized to fit its contents)</div>
+				</section>
+
+
+				<section>
+					<h2 style="" class="l_events">Events and User Interaction</h2>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
+					<div class="slidenote"><div class="l_slidenote_events"></div></div>
+				</section>
+
+				<section>
+					<h2 class="l_event_handling">Event Handling</h2>
+					<p align="left" class="l_similar">Similar To JavaScript in the browser</p>
+					<p align="left" class="l_can_use">Can use addEventListener on nearly any JS object</p>
+					<p align="left" class="l_can_prog">Can programmatically fire events on objects as well</p>
+					<p align="left" class="l_demo">Demo: A simple event handler in the default project</p>
+					<div class="slidenote"><div class="l_slidenote_event_handling">Add event listeners to objects at a component, object or app level<br>Programmatically fire events<br>Demo:<br><ol><li>Test app from prev. module or new default app</li><li>Add event listener to the label on win1, change text of label(Note: 'tap' event is the same as 'click')</li><li>Build, click label to see event fired</li></ul></div></div>
+				</section>
+
+				<section>
+					<h2 class="l_application_events">Application-Level Events</h2>
+					<p align="left" class="l_useful">Useful for sending JSON-serializable data across contexts</p>
+					<p align="left" class="l_publishing">Useful for publishing and subscribing to application events even in a single context</p>
+					<p align="left" class="l_critical">Critical API in component oriented applications</p>
+					<p align="left" class="l_demo_cross_context">Demo: Cross-context messages in the default application</p>
+					<div class="slidenote"><div class="l_slidenote_application_events">Using App level events, we can de-couple our UI from our logic<br>UI components can listen for events and update themselves<br>Events can just alert or pass JSON serializable data<br>Demo:<ol><li>Move win 2 to win2.js, using Ti.UI.currentWindow</li><li>Label2, subscribe to app:labelclicked event</li><ul><li>receives data in event object</li><li>update label2 text &amp; color</li></ul><li>In win1.js, click event handler fires app:labelclicked</li><ul><li>pass message text as second arg</li</ul><li>Build &mdash; doesn't work &mdash; window has to have been opened to receive events</li></ul></div></div>
+				</section>
+
+
+				<section>
+					<h1 class="l_qa_slide">Q&amp;A</h1>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
+					<div class="slidenote"><div class="l_slidenote_qa"></div></div>
+				</section>
+				
+				<section>
+					<h2 class="l_lab">Homework</h2>
+					<ul>
+						<li class="l_labobjective1">Homework objective 1</li>
+						<li class="l_labobjective2">Homework objective 2</li>
+						<li class="l_labobjective3">Homework objective 3</li>
+					</ul>
+					<p class="l_homework" style="margin-top: 50px;">Assignment URL: (fill_in_here)</p>
+
+					<div class="slidenote"><div class="l_slidenote_lab"></div></div>
+				</section>
+
+			</div>
+
+			<!-- MAKE NO CHANGES BELOW THIS LINE -->
+
+			<!-- Appc logo and presenter notes -->
+			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
+			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes'/></a>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="../../presentation-engine/reveal.js/js/reveal.js"></script>
+		<script src="../../presentation-engine/reveal.js/lib/highlight.js"></script>
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+		<script src="../../presentation-engine/js/localize.js"></script>
+		<script>
+			var presenterNotesWindow = null;
+			function openPresenterNotes() {
+				presenterNotesWindow = window.open('presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=600,width=800");
+			}
+		</script>
+		<script>
+		var s = (function load(){
+			var s = {};
+			if(window.outerHeight){
+				s = { w: window.outerWidth, h: window.outerHeight};
+			}
+			else {
+				s = { w: document.body.clientWidth, h: document.body.clientHeight};
+			}
+			return s;
+		})();
+		if(s.w < 1000 || s.h < 800) {
+			var slides = document.querySelectorAll( '#reveal .slides' );
+			for( var i = 0, len = slides.length; i < len; i++ ) {
+				slides[i].classList.add( 'smallscreen' );
+		    }
+		}
+		</script>
+	</body>
+</html>

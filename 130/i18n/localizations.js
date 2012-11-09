@@ -5,9 +5,9 @@
 */
 String.toLocaleString({
 	"en-US": {
-		"%l_filetitle": "The Titanium Workflow",
-		"%l_lessontitle": "The Titanium Workflow",
-		"%l_subtitle": "How to create and test your apps in Titanium",
+		"%l_filetitle": "Creating the User Interface",
+		"%l_lessontitle": "Creating the User Interface",
+		"%l_subtitle": "SUBTITLE",
 
 
 	},
