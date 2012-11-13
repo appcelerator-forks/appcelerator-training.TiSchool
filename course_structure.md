@@ -2,15 +2,23 @@
 
 How you structure the class is up to you as the teacher. But we recommend you follow a structure similar to the one below to create a dynamic, self-driven, and engaging experience.
 
-The course materials include:
-
-* Slide / lecture materials for in-class presentation
-* In-class "do-together" mini projects to implement key techniques and topics
-* Weekly lab assignments, slightly larger app projects to practice what was learned that week.
-* An end of class, course-level project. (see below)
-* Links to references and online learning materials for deeper exploration of key concepts
-
 We suggest you use a mix of formal instruction (lecture) and self-directed exploratory learning (students working on their own or in a small group to discover solutions to challenges). Programming is a skill best learned by doing. Students won't learn by simply listening to a lecture or observing someone else's code. Thus, each week's materials include some materials for you to present. Plus some planned independent time for students to implement what you've taught.
+
+Our pilot of the class will follow this format:
+
+* We'll be meeting as a class once per week for the second half of the school year.
+* I plan to cover one lesson per week.
+* I will have a short lab-style activity for students to do each week. If there's time, I'll have them work on that in class. If not, it will be homework due the next week.
+* I will make myself available to students via email
+* I'm going to use the Startup Weekend-style class lab project suggested below. 
+
+## Equipment
+
+Titanium Mobile is at the mercy of the mobile operating system publishers when it comes to required hardware/software. This is because Titanium uses those vendors' software development kits in the app building process. That means to develop an iOS app, you'll need a Mac -- Apple publishes its tools for OS X only. You can develop Android on either Mac or Windows. In any case, you'll need to download and install those software development kits in addition to Titanium.
+
+Fortunately, there's an online service that will help ease all the setup. And it will let you build Titanium apps for iOS without requiring you to have a Mac. The service is <a href="https://www.foundry22.com/home">Foundry22</a> and their service is free!
+
+If you have Macs available, install all the software on them. It will speed development, testing, and deployment to your devices for testing. But if your computer lab has only Windows computers (or older computers), Foundry22 will be perfect for you.
 
 ## Pre-requisites
 
