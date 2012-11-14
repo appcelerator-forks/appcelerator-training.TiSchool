@@ -12,6 +12,10 @@ Our pilot of the class will follow this format:
 * I will make myself available to students via email
 * I'm going to use the Startup Weekend-style class lab project suggested below. 
 
+## Outline
+
+For now, the outline is on <a href="https://github.com/appcelerator-training/TiSchool/blob/master/outline.md">this page</a>.
+
 ## Equipment
 
 Titanium Mobile is at the mercy of the mobile operating system publishers when it comes to required hardware/software. This is because Titanium uses those vendors' software development kits in the app building process. That means to develop an iOS app, you'll need a Mac -- Apple publishes its tools for OS X only. You can develop Android on either Mac or Windows. In any case, you'll need to download and install those software development kits in addition to Titanium.
