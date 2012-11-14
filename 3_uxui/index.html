@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>The Titanium Workflow</title>
+		<title>Creating the User Interface</title>
 		<meta name="description" content="Introduction, Building Native Mobile Apps With Appcelerator Titanium">
     	<meta name="author" content="Appcelerator, Inc." />
 		
@@ -61,8 +61,7 @@
 			<div class="slides">
 				
 				<section>
-					<h1 style="margin-top:100px;" class="l_lessontitle">The Titanium Workflow</h1>
-					<h5 class="l_subtitle">Creating &amp; testing apps in Titanium</h5>
+					<h1 style="margin-top:100px;" class="l_lessontitle">Creating the User Interface</h1>
 					<script>
 						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
 						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
@@ -74,11 +73,8 @@
 				<section>
 					<h2 style="" class="l_agenda">Agenda</h2>
 					<ul style="width:80%;">
-						<li class="l_agenda1">The Titanium Toolset</li>
-						<li class="l_agenda2">Alloy (or, how you'll code your app)</li>
-						<li class="l_agenda3">Compiling and Running Your Apps</li>
-						<li class="l_agenda4"></li>
-						<li class="l_agenda5"></li>
+						<li class="l_agenda1">User Experience / User Interface</li>
+						<li class="l_agenda2">Alloy Introduction</li>
 					</ul>
 
 					<div class="slidenote"><div class="l_slidenote_agenda"></div></div>
@@ -86,43 +82,85 @@
 
 
 				<section>
-					<h2 style="" class="l_toolset">The Titanium Toolset</h2>
+					<h2 style="" class="l_uxui">User Experience / User Interface</h2>
 					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
-					<div class="slidenote"><div class="l_slidenote_toolset"></div></div>
+					<div class="slidenote"><div class="l_slidenote_uxui"></div></div>
+				</section>
+
+
+				<section>
+					<h2 class="l_ux_basics">What is UX?</h2>
+					<p class="l_ux_image"><img src='images/basics-ux.png' style='margin-top:40px;height:550px;'/></p>				
+					<div class="slidenote"><div class="l_slidenote_ux_basics">UX, or user experience, is all about how your app works. Not what it looks like. Think about your user and the way they'll use your app. How do screens flow from one to another? Are buttons in the right place? Are you showing too much or too little information?<br><br>The 3 examples<br><ul><li>Tweet: confusing options and actions</li><li>App on left: too much info, too much in app, controls poorly laid out -- there's no flow or logical indication of what comes first</li><li>Dialog: not a mobile app, but still poor UX &mdash; It asks users to select command-line switches. If user knows what those switches would be used for, they'd be typing at console. If they don't, then the dialog doesn't give appropriate info.</li></ul></div>
+				</div></section>
+
+				<section>
+					<h2 class="l_critial_questions">Critical Questions</h2>
+					<p align="center" class="l_can_you">You need to answer the following:</p><br>
+					<p align="center" class="l_what_problem">What problem(s) am I solving?</p><br>
+					<p align="center" class="l_who">Who are my key users?</p><br>
+					<p align="center" class="l_what_needs">What are their needs?</p>
+					<div class="slidenote"><div class="l_slidenote_critial_questions">When developing any application you need to ask these fundamental questions. These questions form the foundation atop which you build your application. If a feature doesn't address a user's need, or will serve only a few users, leave it out! </div>
+				</div></section>
+
+				<section>
+					<h2 class="l_window_nav">Sketch it!</h2>
+					<p class="l_windownav_image"><img src="images/sketchit.png" style="margin-top:50px;height:440px;padding:20px;"/></p>
+					<div class="slidenote"><div class="l_slidenote_window_nav">When designing your app, sketch it out. You can use a simple notepad. Index (3 by 5) cards are pretty close to the size of a mobile phone. You can sketch each screen on a card. Then, flip through the deck to get a general sense of how your app will flow. You can even share the cards with others to see what they think of the design and flow.</div>
+				</div></section>
+
+				<section>
+					<h2 style="" class="l_ui">UI</h2>
+				    <img src="images/googlefinance.png" style="width:800px;"/>
+					<div class="slidenote"><div class="l_slidenote_ui">User interface is how something looks -- colors, size, texture, along with concepts of harmony, balance, symmetry, and so forth. UI complements UI and often the two are nearly inseparable. In this screen, you can see a before &amp; after version of an app. Largely, just the UI of the app has changed making for a significantly different looking app.</div></div>
 				</section>
 
 				<section>
-					<h2 style="" class="l_tools">Tools / Software / Services</h2>
-					<ul style="width:90%;">
-						<li class="l_tools1">Titanium Studio</li>
-						<li class="l_tools2">Native SDKs
-							<ul style="width:90%;margin-left:50px;">
-								<li>Xcode -- iOS apps</li>
-								<li>Android Development Kit</li>
-								<li>Java (for the ADK)</li>
-								<li>Developer accounts with Apple &amp; Google</li>
-							</ul></li>
-						<li class="l_tools3">GitHub or Bitbucket</li>
-						<li class="l_tools4">Foundry22</li>
+					<h2 style="" class="l_whatisui">What goes into UI?</h2>
+					<ul style="width:80%;">
+						<li class="l_whatisui1">Controls (buttons, labels, etc.)</li>
+						<li class="l_whatisui2">Colors</li>
+						<li class="l_whatisui3">Fonts</li>
+						<li class="l_whatisui4">Textures and patterns</li>
+						<li class="l_whatisui5">Balance, harmony, symmetry</li>
 					</ul>
-					<div class="slidenote"><div class="l_slidenote_tools">Studio is the tool you write your code in. It also lets you compile and run your projects, debug them, install them to your mobile device, and package them for submission to the app stores.<br/><br/>Studio relies on the native tools from Apple &amp; Google. This means Xcode and the Android Development Kit. For Android, you'll also need the Oracle Java development kit. You'll also need accounts with Apple and Google.<br/><br/>GitHub and Bitbucket are a great and free way to share code. We'll talk more later about how to install apps to your mobile devices, but we'll also use those services in conjunction with Foundry22 to compile and publish your apps (unless you have a Mac).</div></div>
+
+					<div class="slidenote"><div class="l_slidenote_whatisui"></div></div>
 				</section>
 
+				<section>
+					<h2 class="l_iOS_components">iOS User Interface Components</h2>
+					<p><img src="images/ios-components.png" style="margin-top:0px;height:420px;align:right"></p>
+					<div class="slidenote"><div class="l_slidenote_iOS_components">Briefly introduce the key iOS user interface components especially for the Android users in the class</div></div>
+				</section>
+				
+				<section>
+					<h2 class="l_android_components">Android User Interface Components</h2>
+					<p><img src="images/android-components.png" style="margin-top:0px;height:420px;align:right"></p>
+					<div class="slidenote"><div class="l_slidenote_android_components">Briefly introduce the key Android user interface components especially for the iOS users in the class</div></div>
+				</section>
 
+				<section>
+					<h2 style="" class="l_colors">Colors</h2>
+					<div class="slidenote"><div class="l_slidenote_colors"></div></div>
+				</section>
 
 				<section>
 					<h2 style="" class="l_alloy">Alloy</h2>
 					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
-					<div class="slidenote"><div class="l_slidenote_alloy"></div></div>
+					<div class="slidenote"><div class="l_slidenote_alloy">Alloy is the structure or framework of how we'll build our apps in Titanium. We'll introduce Alloy over the next few slides, but we'll work with it throughout the rest of the course.</div></div>
 				</section>
 
 				<section>
 					<h2 style="" class="l_overview">Overview &amp; Goals</h2>
-					<p class="l_overviewpara">Alloy is Appcelerator's MVC-like framework for Titanium</p>
+					<p class="l_overviewpara"></p>
 					<ul style="width:80%;">
-						<li class="l_goals1">Speed and simplify development</li>
-						<li class="l_goals2">Improve maintainability</li>
-						<li class="l_goals3">Implement and enforce best practices</li>
+						<li class="l_goals1">MVC separates form and function
+							<ul style="margin-left: 50px; width:90%;">
+								<li>Speed and simplify development</li>
+								<li>Improve maintainability</li>
+							</ul></li>
+						<li class="l_goals2">Alloy is Appcelerator's MVC-like framework for Titanium</li>
 					</ul>
 					<div class="slidenote"><div class="l_slidenote_overview">Alloy separates form and function.<br/><br/>Productivity: write less code, the framework takes are of many things for you<br/><br/>Maintainability: clear separation of form and function makes it easier to find and update code<br/><br/>Best Practices: framework enforces a clean separation of concerns, which enforces best-practice app design</div></div>
 				</section>
@@ -130,15 +168,13 @@
 				<section>
 					<h2 style="" class="l_mvc">MVC Overview</h2>
 					<ul style="width:80%;">
-						<li class="l_mvc1">Models</li>
 						<li class="l_mvc2">Views</li>
 						<li class="l_mvc3">Controllers</li>
-						<li class="l_mvc4">A million variations!</li>
+						<li class="l_mvc1">Models</li>
 					</ul>
 
 					<div class="slidenote"><div class="l_slidenote_mvc">Before we dig into Alloy, let's be clear on MVC<ul style="width:80%;">
-<li class="l_mvcslidenote1">Models - represent your data and business rules</li><li class="l_mvcslidenote2">Views - output or representation of the data that the user interacts with</li><li class="l_mvcslidenote3">Controllers - glue together models and views, process data and handle user interactions</li>
-<li class="l_mvcslidenote4">There are many variations on which component performs which function. Alloy is no different. It uses a variation of the "pure" MVC architecture</li></ul></div></div>
+<li class="l_mvcslidenote2">Views - output or representation of the data that the user interacts with</li><li class="l_mvcslidenote3">Controllers - glue together models and views, process data and handle user interactions</li><li class="l_mvcslidenote1">Models - represent your data and business rules</li><li class="l_mvcslidenote4">There are many variations on which component performs which function. Alloy is no different. It uses a variation of the "pure" MVC architecture</li></ul></div></div>
 				</section>
 
 				<section>
@@ -385,12 +421,6 @@ alert(Alloy.CFG.foo); // value is 1 or 2 depending on OS
 				</section>
 				</section>
 
-
-				<section>
-					<h2 style="" class="l_compiling">Compiling and Running Your Apps</h2>
-					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
-					<div class="slidenote"><div class="l_slidenote_compiling"></div></div>
-				</section>
 
 				<section>
 					<h1 class="l_qa_slide">Q&amp;A</h1>
