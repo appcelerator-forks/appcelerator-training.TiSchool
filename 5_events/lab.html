@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Introduction</title>
-		<meta name="description" content="Introduction, Building Native Mobile Apps With Appcelerator Titanium">
+		<title class="l_labname">Lab - LABNAME</title>
+		<meta name="description" content="Building Titanium Modules">
     	<meta name="author" content="Appcelerator, Inc." />
 		
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -12,7 +12,15 @@
 		<link rel="stylesheet" href="../css/magula.css">
 		<link rel="stylesheet" href="../css/presentation.css">
 		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
-		<script type="text/javascript" src="i18n/localizations.js"></script>
+		<script type="text/javascript" src="i18n/lablocalizations.js"></script>
+		<style>
+		html, body {
+			overflow: always !important;
+		}
+		.slides {
+			top: 40% !important;
+		}
+		</style>
 		<script>
 		function loadStyleSheet(url){
 		    if(document.createStyleSheet) {
@@ -39,7 +47,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 
 			<!--
-				SLIDE INSTRUCTIONS:
+				LAB FILE INSTRUCTIONS:
 					- Set the <title> tag to this lesson's US English title
 					- Set the <meta description tag to the US English course & lesson title
 					- Add one <section></section> for each slide. Slides can contain most any valid HTML
@@ -58,47 +66,65 @@
 			-->
 			
 			
-			<div class="slides">
-				
-				<section>
-					<h1 style="margin-top:100px;" class="l_lessontitle">TITLE</h1>
-					<h5 class="l_subtitle">SUBTITLE</h5>
-					<script>
-						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
-						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
-						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
-					</script>
-				<div class="slidenote"><div class="l_slidenote_titleslide"></div></div>
-				</section>
+<div class="slides">
+<div id="labwrapper">			
+<section>
 
-				<section>
-					<h2 style="" class="l_CLASSNAME">SLIDE_TITLE</h2>
-					<div class="slidenote"><div class="l_slidenote_MATCH-SLIDE-CLASSNAME"></div></div>
-				</section>
+<!-- YOUR LAB CONTENT GOES HERE -->
+<h1 class="l_labname">Lab - LABNAME</h1>
+<p class="l_mission"><img src='labimages/finished_iphone.png' style='height:300px;float:right;margin-top:-40px;margin-bottom: 10px;'><strong>Mission: </strong>In this lab assignment, you will ...</p>
+
+<p class="l_specification"><strong>Specification: </strong>DESCRIPTION<br/><br/>To successfully complete this lab, you must develop an application that meets the following description:</p>
+
+<ul style="width:70%">
+	<li class="l_spec1">Foo</li>
+	<li class="l_spec2">Bar</li>
+	<li class="l_spec3">Baz</li>
+</ul>
+
+<table>
+	<tr>
+		<td colspan="2" class="labinstructions l_step1">1. </td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation1"></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="labinstructions l_labstep2">2. </td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation2"></td>
+	</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep3">3. </td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation3"></td>
+</tr>
+</table>
+
+<h2 class="l_summary">Summary</h2>
+<p class="l_summarypara">In this lab, you </p>
+
+<h2 class="l_resources">Resources</h2>
+
+<ul>
+	<li class="l_resources1">Foo</li>
+	<li class="l_resources2">Bar</li>
+	<li class="l_resources3">Baz</li>
+</ul>
 
 
-				<section>
-					<h1 class="l_qa_slide">Q&amp;A</h1>
-					<div class="slidenote"><div class="l_slidenote_qa"></div></div>
-				</section>
-				
-				<section>
-					<h2 class="l_lab">Lab Objectives</h2>
-					<ul>
-						<li class="l_labobjective1">Lab objective 1</li>
-						<li class="l_labobjective2">Lab objective 2</li>
-						<li class="l_labobjective3">Lab objective 3</li>
-					</ul>
-					<div class="slidenote"><div class="l_slidenote_lab"></div></div>
-				</section>
-
-			</div>
-
-			<!-- MAKE NO CHANGES BELOW THIS LINE -->
+<!-- MAKE NO CHANGES BELOW THIS LINE -->
+</section>
+</div>
+</div>
 
 			<!-- Appc logo and presenter notes -->
 			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
-			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes'/></a>
 
 			<!-- The navigational controls UI -->
 			<aside class="controls">
@@ -148,12 +174,6 @@
 			hljs.initHighlightingOnLoad();
 		</script>
 		<script src="../../presentation-engine/js/localize.js"></script>
-		<script>
-			var presenterNotesWindow = null;
-			function openPresenterNotes() {
-				presenterNotesWindow = window.open('presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=600,width=800");
-			}
-		</script>
 		<script>
 		var s = (function load(){
 			var s = {};

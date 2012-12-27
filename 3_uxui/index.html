@@ -1,12 +1,28 @@
 <!doctype html>  
 <html>
+<!-- 
+UI :: this chapter
+	UX/UI overview
+	Components you have to work with
+	Laying out a UI
+		View hierarchy
+			Containers vs controls
+		Positioning and units
+UI/Component sampler :: new, next chapter
+	Windows
+	Views & ScrollViews
+	TableViews and TVRows
+	Labels
+	Buttons
+	TextFields and TextAreas
+	ImageViews & backgroundImage
+-->
 	<head>
 		<meta charset="utf-8">
 		<title>Creating the User Interface</title>
-		<meta name="description" content="Introduction, Building Native Mobile Apps With Appcelerator Titanium">
+		<meta name="description" content="Creating the User Interface">
     	<meta name="author" content="Appcelerator, Inc." />
 		
-		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
 		<link rel="stylesheet" href="../css/magula.css">
@@ -74,7 +90,8 @@
 					<h2 style="" class="l_agenda">Agenda</h2>
 					<ul style="width:80%;">
 						<li class="l_agenda1">User Experience / User Interface</li>
-						<li class="l_agenda2">Alloy Introduction</li>
+						<li class="l_agenda2">Creating the UI</li>
+						<li class="l_agenda3">Layout and Positioning</li>
 					</ul>
 
 					<div class="slidenote"><div class="l_slidenote_agenda"></div></div>
@@ -118,14 +135,45 @@
 				<section>
 					<h2 style="" class="l_whatisui">What goes into UI?</h2>
 					<ul style="width:80%;">
-						<li class="l_whatisui1">Controls (buttons, labels, etc.)</li>
+						<li class="l_whatisui1">UI Components</li>
 						<li class="l_whatisui2">Colors</li>
 						<li class="l_whatisui3">Fonts</li>
 						<li class="l_whatisui4">Textures and patterns</li>
 						<li class="l_whatisui5">Balance, harmony, symmetry</li>
 					</ul>
 
-					<div class="slidenote"><div class="l_slidenote_whatisui"></div></div>
+					<div class="slidenote"><div class="l_slidenote_whatisui">We won't spend very much time covering UI design principles or artistic concepts like balance and symmetry. </div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_uictitle">UI Components</h2>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
+					<div class="slidenote"><div class="l_slidenote_uictitle">Let's take a look at the controls and components you can use in an app.</div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_controls">Controls</h2>
+					<ul style="width:80%;">
+						<li class="l_controls1">Windows and Views</li>
+						<li class="l_controls2">Labels</li>
+						<li class="l_controls3">ImageViews</li>
+						<li class="l_controls4">Buttons, Text Fields, Text Areas</li>
+						<li class="l_controls5">Navigation controls -- tabs, split windows, etc.</li>
+						<li class="l_controls6">Media-related (video or audio players)</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_controls">These are the controls available to you. We won't go deep with these now, but we will cover them in more detail in the next lesson.</div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_winview">Windows &amp; Views</h2>
+					<ul style="width:80%;">
+						<li class="l_winview1">'Containers' to hold other components</li>
+						<li class="l_winview2">Windows = full screen (usually)</li>
+						<li class="l_winview3">Views = portion of the screen</li>
+						<li class="l_winview4">Every app has at least one window</li>
+					</ul>
+
+					<div class="slidenote"><div class="l_slidenote_winview"></div></div>
 				</section>
 
 				<section>
@@ -141,284 +189,119 @@
 				</section>
 
 				<section>
-					<h2 style="" class="l_colors">Colors</h2>
-					<div class="slidenote"><div class="l_slidenote_colors"></div></div>
-				</section>
-
-				<section>
-					<h2 style="" class="l_alloy">Alloy</h2>
+					<h2 style="" class="l_units">Units, Positioning, and More</h2>
 					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
-					<div class="slidenote"><div class="l_slidenote_alloy">Alloy is the structure or framework of how we'll build our apps in Titanium. We'll introduce Alloy over the next few slides, but we'll work with it throughout the rest of the course.</div></div>
+					<div class="slidenote"><div class="l_slidenote_units"></div></div>
 				</section>
 
 				<section>
-					<h2 style="" class="l_overview">Overview &amp; Goals</h2>
-					<p class="l_overviewpara"></p>
-					<ul style="width:80%;">
-						<li class="l_goals1">MVC separates form and function
-							<ul style="margin-left: 50px; width:90%;">
-								<li>Speed and simplify development</li>
-								<li>Improve maintainability</li>
-							</ul></li>
-						<li class="l_goals2">Alloy is Appcelerator's MVC-like framework for Titanium</li>
+					<h2 style="" class="l_layout">View Hierarchy</h2>
+					<ul style="width:30%;float:left;margin-top:50px;">
+						<li class="l_layout4">Tabs or not</li>
+						<li class="l_layout1">App has a window</li>
+						<li class="l_layout2">Views inside window</li>
+						<li class="l_layout3">Views inside other views</li>
 					</ul>
-					<div class="slidenote"><div class="l_slidenote_overview">Alloy separates form and function.<br/><br/>Productivity: write less code, the framework takes are of many things for you<br/><br/>Maintainability: clear separation of form and function makes it easier to find and update code<br/><br/>Best Practices: framework enforces a clean separation of concerns, which enforces best-practice app design</div></div>
+				    <img src="images/basic-app-structure.png" style="width:500px;float:right;"/>
+					<pre style="width:430px;float:left;clear:left;"><code contenteditable>
+var win = Ti.UI.createWindow();
+var view = Ti.UI.createView();
+win.add(view);
+					</code></pre>
+					<div class="slidenote"><div class="l_slidenote_layout"></div></div>
 				</section>
 
 				<section>
-					<h2 style="" class="l_mvc">MVC Overview</h2>
-					<ul style="width:80%;">
-						<li class="l_mvc2">Views</li>
-						<li class="l_mvc3">Controllers</li>
-						<li class="l_mvc1">Models</li>
+					<h2 class="l_positioning">Positioning</h2>
+					<img src="images/layout.png" style="float:right;height:400px;">
+					<ul style="text-align:left;width:70%;float:left;">
+						<li class="l_position1"><code>top</code> and <code>left</code></li>
+						<li class="l_position2"><code>bottom</code> and <code>right</code></li>
+						<li class="l_position3"><code>center</code></li>
 					</ul>
+					<pre style="width:550px;float:left;"><code contenteditable>
+var red = Ti.UI.createView({
+  top: 10, left: 10,
+  width: 10, height: 10
+});
+var blue = Ti.UI.createView({
+  center: {x: '50%', y: '50%'},
+  width: 50, height: 50
+});
+var blue = Ti.UI.createView({
+  bottom:70, right: 70,
+  width: 10, height: 10
+});
+					</code></pre>
+					<div class="slidenote"><div class="l_slidenote_positioning"></div></div>
+				</section>
 
-					<div class="slidenote"><div class="l_slidenote_mvc">Before we dig into Alloy, let's be clear on MVC<ul style="width:80%;">
-<li class="l_mvcslidenote2">Views - output or representation of the data that the user interacts with</li><li class="l_mvcslidenote3">Controllers - glue together models and views, process data and handle user interactions</li><li class="l_mvcslidenote1">Models - represent your data and business rules</li><li class="l_mvcslidenote4">There are many variations on which component performs which function. Alloy is no different. It uses a variation of the "pure" MVC architecture</li></ul></div></div>
+
+				<section>
+					<h2 class="l_units">Units</h2>
+					<p align="left" class="l_absmeasures">Absolute measurements: px (pixels), dp/dip, mm, cm, in</p>
+					<p align="left" class="l_relmeasures">Relative measurements: % = percent of the parent's height or width</p>
+<pre><code contenteditable class="l_unitcode">
+var view = Ti.UI.createView({
+  /* You would not normally mix units like this */
+  top: '10mm',
+  left: '5px',
+  width: '30%',
+  height: 50 /* default system units are used here */
+});
+
+</code></pre>
+					<p align="left" class="l_defaultunits" style="font-style:italic;">Default units - on Android = pixels; on iOS = dip</p>
+
+					<div class="slidenote"><div class="l_slidenote_units">Can set a default unit in tiapp.xml<br/>See wiki for how-to</div></div>
 				</section>
 
 				<section>
-					<h2 style="" class="l_alloymvc">Alloy MVC</h2>
-					<ul style="width:80%;">
-						<li class="l_alloymvc1">Views</li>
-						<li class="l_alloymvc2">Styles</li>
-						<li class="l_alloymvc3">Controllers</li>
-						<li class="l_alloymvc4">Models</li>
-						<li class="l_alloymvc5">Extras</li>
+					<h2 class="l_auto">'Auto' Behaviors</h2>
+					<ul style="text-align:left;width:90%;">
+						<li class="l_auto1">Use Ti.UI.SIZE or Ti.UI.FILL instead of actual height/width value<br/><ul style="margin:5px 0 10px 60px;"><li>SIZE: fits to contents</li><li>FILL: fills parent</li></ul></li>
+						<li class="l_auto2">Defaults (if you don't set a height/width)<br/><ul style="margin:5px 0 10px 60px;"><li>Buttons, labels, images, text fields and areas = Ti.UI.SIZE</li><li>Windows, views, tables, webviews = Ti.UI.FILL</li><li>Table rows = FILL for width and SIZE for height</li></ul></li>
 					</ul>
-					<div class="slidenote"><div class="l_slidenote_alloymvc"><ul style="width:80%;"><li class="l_alloymvcslidenote1">Views - XML files that describe the UI components</li><li class="l_alloymvcslidenote2">Styles - CSS-like files that describe how they look</li><li class="l_alloymvcslidenote3">Controllers - JS files that contain your app's logic</li><li class="l_alloymvcslidenote4">Models - JS files that describe and manipulate your app's persistent data</li><li class="l_alloymvcslidenote5">Extras - features that enable platform-specifics, compile-time configuration, and more</li></ul></div></div>
+					<div class="slidenote"><div class="l_slidenote_auto"></div>Used to set 'auto' as value for height or width and Ti would 'figure it out'<br/>But that was inconsistent across platforms and view components<br/>You can now be more explicity by specifying FILL (fills parent) or SIZE (sized to fit its contents)</div>
 				</section>
 
 				<section>
-					<h2 style="" class="l_view">View - index.xml</h2>
-					<pre><code contenteditable>
-&lt;Alloy>
-	&lt;TabGroup id='tabGroup'>
-		&lt;!-- Tab included via &lt;Require> tag -->
-		&lt;Require src="Fugitives"/>
-		&lt;!-- Tab included via &lt;Require> tag -->
-		&lt;Require src="Captured"/>
-	&lt;/TabGroup>
-&lt;/Alloy>
-					</code></pre>
-
-					<div class="slidenote"><div class="l_slidenote_view"><ul style="width:80%;"><li class="l_viewslidenote1">Point out how everything is wrapped in an &lt;Alloy> container</li><li class="l_viewslidenote2">UI elements are added via XML -- &lt;TabGroup> -- based on their Ti.UI object name</li><li class="l_viewslidenote3">You can 'require' in files to break up your UI files</li><li class="l_viewslidenote4">Not shown, but there's support for UI components not in the Ti.UI namespace, for example <NavigationGroup> corresponds to the Ti.UI.iPhone.NavigationGroup</li></ul></div></div>
+					<h2 class="l_coordinates">Coordinates Grid</h2>
+					<p align="left" class="l_coords1">iPhone 3/4 - 320 by 480 point grid</p>
+					<p align="left" class="l_coords2">iPhone 5 - 320 by 568 point grid</p>
+					<p align="left" class="l_coords3">iPad 1/2/3 - 1024 by 768 grid</p>
+					<div align="left" class="l_coords4">Android sizes vary:<br/><ul style="align:left;margin-left:70px;"><li>HVGA = 320 by 480 px</li><li>WVGA800 = 480 by 800 px</li><li>WVGA854 = 480 by 854 px</li></ul></div>
+					<div class="slidenote"><div class="l_slidenote_coordinates">You can use dp/dip units on Android to achieve the same density independent grid as is default on iOS.</div></div>
 				</section>
-
+				
 				<section>
-					<h2 style="" class="l_styles">Styles -- fugitivves.tss</h2>
-					<pre><code contenteditable>
-".container": {
-   backgroundColor: "white"
-},
-"Tab" : {
-   icon: '/images/fugitives.png',
-},
-"Window": {
-      backgroundColor:'transparent',
-      backgroundImage: 'images/grain.png',
-      title: 'Fugitives',
-      barColor: '#6d0a0c',
-},
-'#table' : {
-      backgroundColor: 'transparent'
-}					</code></pre>
-					<div class="slidenote"><div class="l_slidenote_styles">
-<ul style="width:80%;">
-<li class="l_styles1">Uses CSS-like syntax</li>
-<li class="l_styles2">Selectors by ID (can go back a slide to show tab group's ID), class, or component type</li>
-<li class="l_styles3">One style per xml file</li>
-<li class="l_styles4">Cascade app.tss then view_specific.tss &amp;&amp; <br/>Object then Class then ID</li>
-</ul>
-
-</div></div>
-				</section>
-
-				<section>
-					<h2 style="" class="l_controllers">Controllers</h2>
-					<pre><code contenteditable>
-if (!Ti.App.Properties.hasProperty('seeded')) {
-   var net = require('lib/network');
-   net.getFugitives(function(data) {
-      for (var i = 0; i < data.length; i++) {
-         Alloy.createModel("Fugitive", {
-            name : data[i].name,
-            captured : false
-         }).save();
-      }
-      Ti.App.Properties.setString('seeded', 'yuppers');
-      $.tabGroup.open();
-      Ti.App.fireEvent('update_table');
-   });
-} else {
-   $.tabGroup.open();
-}
-					</code></pre>
-					<div class="slidenote"><div class="l_slidenote_controllers">
-					<ul style="width:80%;"><li class="l_controllers1">Where the logic of your app resides</li><li class="l_controllers2">Access UI objects via their id</li><li class="l_controllers3">Connect with models &amp; other views via Alloy commands</li><li class="l_controllers4">Still have access to all the usual Ti programming techniques you're familiar with</li></ul></div></div>
-				</section>
-
-				<section>
-					<h2 style="" class="l_modesl">Models</h2>
-					<pre><code contenteditable>
-exports.definition = {
-    config : {
-        "columns" : {
-            "name" : "string",
-            "captured" : "integer",
-            "url" : "string",
-            "capturedLat" : "real",
-            "capturedLong" : "real"
-        },
-        "adapter" : {
-            "type" : "sql",
-            "collection_name" : "fugitives"
-        }
-    },
-...
-}
-					</code></pre>
-
-					<div class="slidenote"><div class="l_slidenote_modesl">
-<ul style="width:80%;">
-<li class="l_models1">Defines your data structure</li>
-<li class="l_models2">Extends the Backbone.js Model, giving you access to methods like fetch() and ability to watch events so that you can update views when your data changes</li>
-<li class="l_models3">Adapters are the interface to a persistent storage location -- the database, file system, ACS, properties, etc.</li>
-<li class="l_models4">In the case of SQL, "collection_name" defines your database table. Different for other adapters.</li>
-</ul>
-
-</div></div>
-				</section>
-
-				<section>
-					<section>
-						<h1 class="l_platform">Platform &amp; Form Factor</h1>
-					<ul style="width:80%;">
-						<li class="l_platform3">App assets</li>
-						<li class="l_platform4">Platform Build-time Folders</li>
-						<li class="l_platform1">Markup-based Techniques</li>
-						<li class="l_platform1">Media / Device Queries</li>
-						<li class="l_platform2">Conditional code</li>
+					<h2 class="l_view_hierarchy">Layout modes</h2>
+					<ul style="text-align:left;width:90%;">
+						<li class="l_absolute">Absolute</li>
+						<li class="l_vertical">Vertical</li>
+						<li class="l_horizontal">Horizontal</li>
 					</ul>
-
-						<div class="slidenote"><div class="l_slidenote_platform"></div></div>
-						<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png"/></div>
-					</section>
-
-					<section>
-						<h2 class="l_assetfolders">Asset Folders</h2>
-						<p class="l_assetimg"><img src="images/appassets.png"/></p>
-						<div class="slidenote"><div class="l_slidenote_assetfolders">
-<ul style="width:80%;">
-<li class="l_fassets1">Put in app/assets; they're copied to the Resources directory when you build</li>
-<li class="l_fassets2">Same subdirectories as without Alloy</li>
-<li class="l_fassets3">Put your libraries and "includes" in the lib folder</li>
-</ul>
-</div></div>
-<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png"/></div>
-					</section>
-					<section>
-						<h2 class="l_platformfolders">Platform Folders</h2>
-						<p class="l_pfolderimg"><img src="images/platformfolders.png"/></p>
-						<div class="slidenote"><div class="l_slidenote_platformfolders">
-<ul style="width:80%;">
-<li class="l_pfolders1">Can do the same build-time, platform-specific folders of file overrides as without Titanium</li>
-<li class="l_pfolders2">E.g. with the graphic we have platform-specific View XML files</li>
-<li class="l_pfolders3">But the other techniques are probably just as easy</li>
-</ul>
-</div></div>
-<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png"/></div>
-					</section>
-
-					<section>
-						<h2 class="l_platformmarkup">Platform and Device Markup</h2>
-					<pre><code contenteditable style="font-size:1.1em !important;">
-&lt;Alloy>
-  &lt;Window class="container">
-     &lt;View formFactor="handheld">
-        &lt;Label>I'm a handheld!&lt;/Label>
-     &lt;/View>
-
-     &lt;View formFactor="tablet">
-        &lt;Label>I'm a tablet!&lt;/Label>
-     &lt;/View>
-
-     &lt;View height="50" width="200" bottom="10" backgroundColor="#cdcdcd">
-        &lt;Label class="platformLbl" platform="android" formFactor="tablet">android tablet&lt;/Label>
-        &lt;Label class="platformLbl" platform="android" formFactor="handheld">android handset&lt;/Label>
-        &lt;Label class="platformLbl" platform="ios" formFactor="tablet">ios tablet&lt;/Label>
-        &lt;Label class="platformLbl" platform="ios" formFactor="handheld">ios handset&lt;/Label>
-     &lt;/View>
-  &lt;/Window>
-&lt;/Alloy>
-					</code></pre>
-						<div class="slidenote"><div class="l_slidenote_platformmarkup"></div></div>
-						<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png"/></div>
-					</section>
-
-					<section>
-						<h2 class="l_pselectors">Media / Device Queries</h2>
-					<pre><code contenteditable>
-"#mybutton[platform=android]" : {
-		height:'40dp',
-},
-"#mybutton[platform=ios]" : {
-		height:50,
-},
-"#osLabel[platform=ios size=tablet]": {
-	text: "iPad"
-},
-"#osLabel[platform=ios size=handheld]": {
-	text: "iPhone"
-},
-
-					</code></pre>
-						<div class="slidenote"><div class="l_slidenote_pselectors"></div></div>
-						<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png"/></div>
-					</section>
-					<section>
-						<h2 class="l_conditionalcode">Conditional Code</h2>
-					<ul style="width:80%;">
-						<li class="l_conditionalcode1">OS_IOS, OS_ANDROID, OS_MOBILEWEB</li>
-						<li class="l_conditionalcode2">ENV_DEV, ENV_TEST, ENV_PRODUCTION</li>
-					</ul>
-					<pre><code contenteditable>
-if (ENV_DEV && OS_IOS) {
-   alert("You are running iOS in the simulator");
-}
-					</code></pre>
-
-						<div class="slidenote"><div class="l_slidenote_conditionalcode"><ul>
-<li>OS_IOS : true if the current compiler target is iOS</li>
-<li>OS_ANDROID: true if the current compiler target is Android</li>
-<li>OS_MOBILEWEB: true if the current compiler target is Mobile Web</li>
-<li>ENV_DEV: true if the current compiler target is build for development (running in simulator/emulator)</li>
-<li>ENV_TEST: true if the current compiler target is build for test (run on device)</li>
-<li>ENV_PRODUCTION: true if the current compiler target is build for product (run after packaged for install)</li></ul>
-						</div></div>
-						<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png"/></div>
-					</section>
+					<div class="slidenote"><div class="l_slidenote_view_hierarchy">Absolute &mdash; relative to parent not screen Vertical &amp; horizontal &mdash; apply to parent object &mdash; we'll see examples in upcoming slides</div></div>
+				</section>
+				
+				<section>
+					<h2 class="l_absolute_layout">Absolute Layout</h2>
+					<p><img src="images/absolute-layout-snippet.png" style="margin-top:0px;height:220px;align:left"></p>
+					<p><img src="images/window-layout.png" style="margin-top:0px;height:220px;align:right"></p>
+					<div class="slidenote"><div class="l_slidenote_absolute_layout">We have here a window with a couple UI elements<br>The button is positioned 170 points from the parent's top edge</div></div>
+				</section>
+				
+				<section>
+					<h2 class="l_absolute_layout">Absolute Layout</h2>
+					<p><img src="images/absolute-layout-snippet-2.png" style="margin-top:0px;height:220px;align:left"></p>
+					<p><img src="images/window-layout-2.png" style="margin-top:0px;height:220px;align:right"></p>
+					<div class="slidenote"><div class="l_slidenote_absolute_layout_2">Absolute, left 30 points from left edge</div></div>
+				</section>
 
 				<section>
-					<h2 style="" class="l_configs">Configurations</h2>
-					<pre><code contenteditable>
-// config.json file
-{
-   "global": { "foo": 1}, 
-   "env:development": {}, 
-   "env:test": {}, 
-   "env:production": {}, 
-   "os:ios": { "foo": 2 }, 
-   "os:android": {}, 
-   "dependencies": {}
-}
-// in your code
-alert(Alloy.CFG.foo); // value is 1 or 2 depending on OS
-					</code></pre>
-
-					<div class="slidenote"><div class="l_slidenote_configs">Specify globals for various runtime environments and require in dependencies, such as wigets (like modules) that your app uses</div></div>
-					<div class="nestedarrow"><img width="178" height="238" src="../images/arrow.png" style="-webkit-transform: rotate(180deg);"></div>
-				</section>
+					<h2 class="l_vertical_layout">Vertical Layout</h2>
+					<p><img src="images/vertical-layout.png" style="margin-top:0px;height:420px;align:left"></p>
+					<div class="slidenote"><div class="l_slidenote_vertical_layout">Parent object has the Vertical layout<br>Child object's positions are then in relation to each other within the parent</div></div>
 				</section>
 
 
