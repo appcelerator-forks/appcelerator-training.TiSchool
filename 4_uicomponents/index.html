@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Introduction</title>
-		<meta name="description" content="Introduction, Building Native Mobile Apps With Appcelerator Titanium">
+		<title>UI Components</title>
+		<meta name="description" content="UI Components, Building Native Mobile Apps With Appcelerator Titanium">
     	<meta name="author" content="Appcelerator, Inc." />
 		
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
@@ -60,8 +60,8 @@
 			<div class="slides">
 				
 				<section>
-					<h1 style="margin-top:100px;" class="l_lessontitle">TITLE</h1>
-					<h5 class="l_subtitle">SUBTITLE</h5>
+					<h1 style="margin-top:100px;" class="l_lessontitle">UI Components</h1>
+					<h5 class="l_subtitle"></h5>
 					<script>
 						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
 						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
@@ -71,10 +71,151 @@
 				</section>
 
 				<section>
-					<h2 style="" class="l_CLASSNAME">SLIDE_TITLE</h2>
-					<div class="slidenote"><div class="l_slidenote_MATCH-SLIDE-CLASSNAME"></div></div>
+					<h2 style="" class="l_factory">Factory Pattern</h2>
+					<pre style=""><code contenteditable>
+// file is app.js
+var win = Ti.UI.createWindow({
+  backgroundColor: 'transparent',
+  backgroundImage: '/images/grunge.png'
+});
+win.title = 'My Great App';
+win.open();
+					</code></pre>
+					<ul style="width:80%;">
+						<li class="l_factory1">All UI components follow this 'create' pattern</li>
+						<li class="l_factory2">Specify initial options with an 'anonymous object' -- that's the {} part</li>
+						<li class="l_factory3">You can later apply new or different properties.</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_factory">factory pattern, using an anonymous object to pass parameters</div></div>
 				</section>
 
+				<section>
+					<h2 style="" class="l_hierarchy">View Hierarchy</h2>
+					<pre style=""><code contenteditable>
+// file is app.js
+var win = Ti.UI.createWindow({
+  backgroundColor: 'transparent',
+  backgroundImage: '/images/grunge.png'
+});
+var hi = Ti.UI.createLabel({
+	text: 'Hello World'
+});
+win.add(hi); // add to window or it won't be visible
+win.open();
+					</code></pre>
+					<ul style="width:80%;">
+						<li class="l_hierarchy1">App has to have a Window object</li>
+						<li class="l_hierarchy2">You create your other objects as needed</li>
+						<li class="l_hierarchy3">And add them to the window or other containers</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_hierarchy"></div></div>
+				</section>
+				
+				<section>
+					<h2 style="" class="l_modpattern">Module Pattern Part 1</h2>
+					<p class="l_modpatternpara">What if you need to create many copies of a customized component?</p>
+					<pre style=""><code contenteditable>
+// file is mybutton.js
+var MyButton = function(text) {
+  var btn = Ti.UI.createButton({
+    title: text,
+    backgroundColor: 'orange',
+    color: 'black',
+    borderWidth: 5,
+    borderColor: 'black'
+  });
+  return btn;
+}
+module.exports = MyButton;
+
+					</code></pre>
+					<div class="slidenote"><div class="l_slidenote_modpattern">You could duplicate all that create code, or you could write a module.</div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_modpattern2">Module Pattern Part 2</h2>
+					<pre style=""><code contenteditable>
+// file is app.js
+var MyButton = require('mybutton'); // no .js!
+
+var button1 = new MyButton('Button 1');
+var button2 = new MyButton('Button 2');
+var button3 = new MyButton('Button 3');
+
+win.add(button1);
+win.add(button2);
+win.add(button3);
+
+					</code></pre>
+					<div class="slidenote"><div class="l_slidenote_modpattern2"></div></div>
+				</section>
+
+
+				<section>
+					<h2 style="" class="l_commoncomponents">Common Components</h2>
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr><th>Component</th><th>Description</th><th>Create code</th></tr>
+	<tr><td>Window</td><td>Full-screen container, need 1</td><td style="font-family: Courier, 'Courier New', serif !important;">Ti.UI.createWindow()</td></tr>
+	<tr><td>View</td><td>Rectangular, stylable area</td><td style="font-family: Courier, 'Courier New', serif !important;">Ti.UI.createView()</td></tr>
+	<tr><td>ImageView</td><td>Display an image</td><td style="font-family: Courier, 'Courier New', serif !important;">Ti.UI.createImageView()</td></tr>
+	<tr><td>Button</td><td>Button for user input</td><td style="font-family: Courier, 'Courier New', serif !important;">Ti.UI.createButton()</td></tr>
+	<tr><td>Label</td><td>Display text</td><td style="font-family: Courier, 'Courier New', serif !important;">Ti.UI.createLabel()</td></tr>
+	<tr><td>TextField</td><td>Single-line text entry</td><td style="font-family: Courier, 'Courier New', serif !important;">Ti.UI.createTextField()</td></tr>
+	<tr><td>TextArea</td><td>Multi-line text entry</td><td style="font-family: Courier, 'Courier New', serif !important;">Ti.UI.createTextArea()</td></tr>
+	<tr><td>TableView</td><td>A table with zero or more rows</td><td style="font-family: Courier, 'Courier New', serif !important;">Ti.UI.createTableView()</td></tr>
+</table>
+					<div class="slidenote"><div class="l_slidenote_commoncomponents"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_commonprops">Common Properties</h2>
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr><th>Property</th><th>Description</th><th>Possible values</th></tr>
+	<tr><td>height</td><td>Height</td><td style="font-family: Courier, 'Courier New', serif !important;">{height:30}</td></tr>
+	<tr><td>width</td><td>Width</td><td style="font-family: Courier, 'Courier New', serif !important;">{width:30}</td></tr>
+	<tr><td>color</td><td>Foreground (text) color</td><td style="font-family: Courier, 'Courier New', serif !important;">{color:'#ff0000'}</td></tr>
+	<tr><td>backgroundColor</td><td>Background color</td><td style="font-family: Courier, 'Courier New', serif !important;">{backgroundColor:'#00ff00'}</td></tr>
+	<tr><td>text or title</td><td>Text on a button or in a field</td><td style="font-family: Courier, 'Courier New', serif !important;">{text:'hello'}</td></tr>
+</table>
+					<div class="slidenote"><div class="l_slidenote_commonprops"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_whichhaswhich">Which Has Which?</h2>
+				    <img src="images/docs1.png" style="width:800px;"/>
+					<div class="slidenote"><div class="l_slidenote_whichhaswhich"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_tables">TableViews and TableViewRows</h2>
+					<pre style=""><code contenteditable>
+var rows = []; // an array that will hold our row data
+for(var i=0; i&lt;10; i++) {
+  rows.push({
+    title: 'Row '+i,
+    color: 'black'
+  });
+}
+var table = Ti.UI.createTableView({
+  data: rows
+});
+					</code></pre>
+					<ul style="width:80%;">
+						<li class="l_tables1">Tables are a bit special</li>
+						<li class="l_tables2">Need an array of row data</li>
+						<li class="l_tables3">Can create actual TableViewRow objects</li>
+						<li class="l_tables4">But an anonymous object with a 'title' property will do just fine</li>
+					</ul>
+
+					<div class="slidenote"><div class="l_slidenote_tables"></div></div>
+				</section>
+
+
+
+				<section>
+					<h2 style="margin-top: 200px;" class="l_walkthrough">App Walk-through</h2>
+					<div class="slidenote"><div class="l_slidenote_walkthrough"></div></div>
+				</section>
 
 				<section>
 					<h1 class="l_qa_slide">Q&amp;A</h1>
@@ -84,11 +225,11 @@
 				<section>
 					<h2 class="l_lab">Lab Objectives</h2>
 					<ul>
-						<li class="l_labobjective1">Lab objective 1</li>
-						<li class="l_labobjective2">Lab objective 2</li>
-						<li class="l_labobjective3">Lab objective 3</li>
+						<li class="l_labobjective1">Create a new app and add starting UI components</li>
+						<li class="l_labobjective2">A view &amp; label across the top to be our title bar</li>
+						<li class="l_labobjective3">A table with 10 rows starting below the title bar</li>
 					</ul>
-					<div class="slidenote"><div class="l_slidenote_lab"></div></div>
+					<div class="slidenote"><div class="l_slidenote_lab">Will be posted to the Google group</div></div>
 				</section>
 
 			</div>

@@ -5,18 +5,5 @@
 */
 String.toLocaleString({
 	"en-US": {
-		"%l_filetitle": "TITLE",
-		"%l_lessontitle": "TITLE",
-		"%l_subtitle": "SUBTITLE",
-
-		"%l_qa_slide": "Q&amp;A",
-		"%l_slidenote_qa": "",
-
-		"%l_lab": "Lab Objectives",
-		"%l_labobjective1": "Foo",
-		"%l_labobjective2": "Bar",
-		"%l_labobjective3": "Baz",
-		"%l_slidenote_lab": "",
-
 	},
 });
