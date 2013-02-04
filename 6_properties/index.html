@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Events</title>
-		<meta name="description" content="User interaction and events">
+		<title>Properties</title>
+		<meta name="description" content="Properties, Building Native Mobile Apps With Appcelerator Titanium">
     	<meta name="author" content="Appcelerator, Inc." />
 		
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
@@ -60,8 +60,8 @@
 			<div class="slides">
 				
 				<section>
-					<h1 style="margin-top:100px;" class="l_lessontitle">Events</h1>
-					<h5 class="l_subtitle">Enabling User Interaction</h5>
+					<h1 style="margin-top:100px;" class="l_lessontitle">Properties</h1>
+					<h5 class="l_subtitle"></h5>
 					<script>
 						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
 						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
@@ -70,169 +70,132 @@
 				<div class="slidenote"><div class="l_slidenote_titleslide"></div></div>
 				</section>
 
-
 				<section>
-					<h2 style="" class="l_eventhandling">Event Handling</h2>
+					<h2 style="" class="l_agenda">Agenda</h2>
 					<ul style="width:80%;">
-						<li class="l_eh1">Events are things that happen that you can monitor and react to</li>
-						<li class="l_eh2">User-generated: clicks, swipes, shakes, etc.</li>
-						<li class="l_eh3">Custom: non-user events that you use to signal within your app</li>
-						<li class="l_eh4">System-generated: battery low, phone call or SMS received</li>
+						<li class="l_agenda1">What are Properties?</li>
+						<li class="l_agenda2">Storage &amp; retrieval</li>
+						<li class="l_agenda3">Data types</li>
 					</ul>
-					<div class="slidenote"><div class="l_slidenote_eventhandling"></div></div>
+					<div class="slidenote"><div class="l_slidenote_agenda"></div></div>
+				</section>
+
+				<!-- - - - - - - - - - - - - - - - - NEW TOPIC - - - - - - - - - - - - - - - - -->
+				<section>
+					<h2 style="" class="l_whatare">What are Properties?</h2>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
+					<div class="slidenote"><div class="l_slidenote_whatare"></div></div>
 				</section>
 
 				<section>
-					<h2 class="l_event_handlingctd">Event Handling, cont'd</h2>
+					<h2 style="" class="l_props">Properties</h2>
 					<ul style="width:80%;">
-						<li class="l_ehctd1">Event listener - code you 'attach' to something to run when an event occurs</li>
-						<li class="l_ehctd2">Firing event - causing an event so that listeners are engaged</li>
-						<li class="l_ehctd3">You can add a listener on any UI component</li>
-						<li class="l_ehctd4">You can add custom listeners to nearly any object in your app</li>
-						<li class="l_ehctd5">You can fire any user-generated or custom type event (not the system events though)</li>
+						<li class="l_props1">Simple storage mechanism</li>
+						<li class="l_props2">Limited capacity</li>
+						<li class="l_props3">Fast &amp; flexible</li>
 					</ul>
-					<div class="slidenote"><div class="l_slidenote_event_handlingctd"></div></div>
+					<div class="slidenote"><div class="l_slidenote_props">Properties are a simple storage mechanism in which you can store what are called key/value pairs. Basically, you can store a variable (that's the key) and its contents are the value. You should consider properties to have a limited capacity. We'll talk more about why later. But you won't store all your app's data in properties. They're convenient because they're quick to create &amp; retrieve and can store just about any type of data you want to put in them.</div></div>
+				</section>
+
+				<!-- - - - - - - - - - - - - - - - - NEW TOPIC - - - - - - - - - - - - - - - - -->
+				<section>
+					<h2 style="" class="l_storage">Storage &amp; Retrieval</h2>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
+					<div class="slidenote"><div class="l_slidenote_storage"></div></div>
 				</section>
 
 				<section>
-					<h2 style="" class="l_ehexample">Example 1</h2>
+					<h2 style="" class="l_creating">Creating an app property</h2>
 					<pre style=""><code contenteditable>
-// let's start with a UI component, a button
-var btn = Ti.UI.createButton({
-  title: 'Click me'
-});
+Ti.App.Properties.setString('key', 'value');
 
-btn.addEventListener('click', function() {
-  alert('Ouch! You clicked me!');
-});
+// for example
+Ti.App.Properties.setString('playerName', 'Gandalf');
+					</code></pre>
+					<div class="slidenote"><div class="l_slidenote_creating"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_getting">Retrieving an app property</h2>
+					<pre style=""><code contenteditable>
+Ti.App.Properties.getString('key', 'default value');
+
+// for example
+var player = Ti.App.Properties.getString('playerName'); // second arg is optional
 
 					</code></pre>
-					<div class="slidenote"><div class="l_slidenote_ehexample"></div></div>
+					<div class="slidenote"><div class="l_slidenote_getting"></div></div>
+				</section>
+
+				<!-- - - - - - - - - - - - - - - - - NEW TOPIC - - - - - - - - - - - - - - - - -->
+				<section>
+					<h2 style="" class="l_datatypes">Data Types</h2>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
+					<div class="slidenote"><div class="l_slidenote_datatypes"></div></div>
 				</section>
 
 				<section>
-					<h2 style="" class="l_ehexampleb">Example 2</h2>
-					<pre style=""><code contenteditable>
-// let's start with a UI component, a button
-var btn = Ti.UI.createButton({
-  title: 'Click me'
-});
-
-// let's define our function first
-function ouch() {
-  alert('Ouch! You clicked me!');
-}
-
-// then use it in the listener -- without the () !!
-btn.addEventListener('click', ouch);
-
-					</code></pre>
-					<div class="slidenote"><div class="l_slidenote_ehexampleb"></div></div>
-				</section>
-
-				<section>
-					<h2 style="" class="l_removing">Removing Event Listeners</h2>
-					<pre style=""><code contenteditable>
-var btn = Ti.UI.createButton({
-  title: 'Click me'
-});
-
-function ouch() {
-  alert('Ouch! You clicked me!');
-  btn.removeEventListener('click', ouch);
-  btn.title = "You can't click me";
-}
-
-btn.addEventListener('click', ouch);
-
-					</code></pre>
-					<div class="slidenote"><div class="l_slidenote_removing"></div></div>
-				</section>
-
-
-
-				<section>
-					<h2 style="" class="l_eventlist">Common UI Events</h2>
+					<h2 style="" class="l_getters">Getter/Setters</h2>
 <table border="0" cellspacing="5" cellpadding="5">
-	<tr><th>Event name</th><th>Description</th></tr>
-	<tr><td><code>click </code></td><td>User taps the component briefly </td></tr>
-	<tr><td><code>longpress </code></td><td>User taps then holds a component </td></tr>
-	<tr><td><code>swipe </code></td><td>User touches &amp; drags side-to-side </td></tr>
-	<tr><td><code>scroll </code></td><td>User touches &amp; drags up-down </td></tr>
-	<tr><td><code>change </code></td><td>User changes contents of text field or area </td></tr>
-	<tr><td><code>focus </code></td><td>UI component becomes the active, 'selected' component</td></tr>
-	<tr><td><code>blur </code></td><td>UI component loses focus </td></tr>
+	<tr><th>Data Type</th><th>Setter</th><th>Getter</th></tr>
+	<tr>
+		<td>Strings</td>
+		<td>setString()</td>
+		<td>getString()</td>
+	</tr>
+	<tr>
+		<td>Integers</td>
+		<td>setInt()</td>
+		<td>getInt()</td>
+	</tr>
+	<tr>
+		<td>Floats</td>
+		<td>setDouble()</td>
+		<td>getDouble()</td>
+	</tr>
+	<tr>
+		<td>Booleans</td>
+		<td>setBool()</td>
+		<td>getBool()</td>
+	</tr>
+	<tr>
+		<td>Arrays</td>
+		<td>setList()</td>
+		<td>getList()</td>
+	</tr>
+	<tr>
+		<td>Objects</td>
+		<td>setObject()</td>
+		<td>getObject()</td>
+	</tr>
 </table>
-					<div class="slidenote"><div class="l_slidenote_eventlist"></div></div>
+					<div class="slidenote"><div class="l_slidenote_getters"></div></div>
 				</section>
 
 				<section>
-					<h2 style="" class="l_evprops">Event Object Properties</h2>
-					<pre style=""><code contenteditable>
-var textField = Ti.UI.createTextField();
-var anotherField = Ti.UI.createTextField();
-
-textField.addEventListener('change', function(e) {
-  // e represents the 'event' object
-  anotherField.value = e.value; // it has various properties
-});
-
-					</code></pre>
-					<div class="slidenote"><div class="l_slidenote_evprops"></div></div>
-				</section>
-
-				<section>
-					<h2 style="" class="l_eventdocs">Events Documentation</h2>
-				    <img src="images/events.png" style="width:400px;margin-right:20px;"/>
-				    <img src="images/eventprops.png" style="width:490px;float:right;"/>
-					<p class="l_docslink" style="margin-top: 20px; font-weight: bold;">docs.appcelerator.com</p>
-					<div class="slidenote"><div class="l_slidenote_eventdocs"></div></div>
-				</section>
-
-				<section>
-					<h2 class="l_application_events">Application-Level Events</h2>
+					<h2 style="" class="l_caveat">Caveat!</h2>
 					<ul style="width:80%;">
-						<li class="l_applevel1">Not associated with a UI component</li>
-						<li class="l_applevel2">Used for signaling within the application</li>
-						<li class="l_applevel3">Can be fired from and listened for from anywhere within your app</li>
+						<li class="l_caveats1">Read into memory when app starts</li>
+						<li class="l_caveats2">Stay there till app closes</li>
+						<li class="l_caveats3">Memory for apps is very limited!</li>
+						<li class="l_caveats4">Don't store a lot in properties</li>
 					</ul>
-					<div class="slidenote"><div class="l_slidenote_application_events"></div></div>
+					<div class="slidenote"><div class="l_slidenote_caveat"></div></div>
 				</section>
 
 				<section>
-					<h2 style="" class="l_appex">App Events Example</h2>
-					<pre style=""><code contenteditable>
-function saveToDatabase() {
-  // code goes here to save info
-  // to the database, when it's
-  // done, fire app event
-  Ti.App.fireEvent('databaseUpdated');
-}
-					</code></pre>
-					<pre style="margin-top:10px;"><code contenteditable>
-var table = Ti.UI.createTableView();
-
-Ti.App.addEventListener('databaseUpdated', function() {
-  table.data = db.getInfoAsTableRows();
-});
-
-					</code></pre>
-					<div class="slidenote"><div class="l_slidenote_appex"></div></div>
-				</section>
-
-
-				<section>
-					<h1 class="l_qa_slide">Demo</h1>
-					<p class="l_demopara">User and app-level events in the TicTacToe app</p>
+					<h1 class="l_qa_slide">Q&amp;A</h1>
 					<div class="slidenote"><div class="l_slidenote_qa"></div></div>
 				</section>
 				
 				<section>
 					<h2 class="l_lab">Lab Objectives</h2>
-					<ul>
-						<li class="l_labobjective1">Start with a new app with a single, white window</li>
-						<li class="l_labobjective2">Each time the user clicks that window, add a square box (View) at the location of their click</li>
-						<li class="l_labobjective3">Bonus points for changing the color of the box each time the user clicks</li>
+					<img src="images/lab.png" style="width:300px;float:right;" class="noborder"/>
+					
+					<ul style="width:60%;float:left;">
+						<li class="l_labobjective1">Write an app that stores data in properties</li>
+						<li class="l_labobjective2">Use a single property to store multiple values</li>
+						<li class="l_labobjective3">When app launches, it should read property and display the values</li>
 					</ul>
 					<div class="slidenote"><div class="l_slidenote_lab"></div></div>
 				</section>
