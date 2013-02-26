@@ -1,0 +1,409 @@
+<!doctype html>  
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Database Introduction</title>
+		<meta name="description" content="Introduction, Building Native Mobile Apps With Appcelerator Titanium">
+    	<meta name="author" content="Appcelerator, Inc." />
+		
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
+		<link rel="stylesheet" href="../css/magula.css">
+		<link rel="stylesheet" href="../css/presentation.css">
+		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
+		<script type="text/javascript" src="i18n/localizations.js"></script>
+		<script>
+		function loadStyleSheet(url){
+		    if(document.createStyleSheet) {
+		        try {document.createStyleSheet(url);} catch (e) { }
+		    }
+		    else{
+		        var css;
+		        css         = document.createElement('link');
+		        css.rel     = 'stylesheet';
+		        css.type    = 'text/css';
+		        css.media   = "all";
+		        css.href    = url;
+		        document.getElementsByTagName("head")[0].appendChild(css);
+		    }
+		}
+		var browserlang = document.documentElement.lang || String.locale || 'en-US';
+		loadStyleSheet('../css/'+browserlang+'.css');
+		</script>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/print.css" media="print">
+	</head>
+	
+	<body>
+		<div id="reveal">	
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<!--
+				SLIDE INSTRUCTIONS:
+					- Set the <title> tag to this lesson's US English title
+					- Set the <meta description tag to the US English course & lesson title
+					- Add one <section></section> for each slide. Slides can contain most any valid HTML
+					- Each text tag (<p> or <li> or <h1> etc.) must have a class name that begins with
+						"l_" and is unique. Each of those class names must be added to the i18n/localizations.js
+						file and their values must be set equal to the US English version of the strings. That 
+						file is used for translation and its contents OVERRIDES the text in this file.
+					- Each slide must have a <div class="slidenote"></div> container, which can be empty. These
+						are used for presenter notes. They also must be given unique "l_" classnames and strings
+						provided in the localizations.js file.
+					- Please use inline CSS on the slides to size & arrange contents.
+					- Graphics should be placed in the images folder and cropped/sized appropriately.
+					- Assume a 1024 x 768 display resolution
+					- A link to the index.html for each lesson must be added in order to the coursename/index.html
+						title slide.
+			-->
+			
+			
+			<div class="slides">
+				
+				<section>
+					<h1 style="margin-top:100px;" class="l_lessontitle">Database Introduction</h1>
+					<h5 class="l_subtitle"></h5>
+					<script>
+						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
+						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+					</script>
+				<div class="slidenote"><div class="l_slidenote_titleslide"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_agenda">Agenda</h2>
+					<ul style="width:80%;">
+						<li class="l_agenda1">Database overview</li>
+						<li class="l_agenda2">SQL overview</li>
+						<li class="l_agenda3">Databases in Titanium</li>
+						<li class="l_agenda4"></li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_agenda"></div></div>
+				</section>
+
+				<!-- - - - - - - - - - - - - - - - - NEW TOPIC - - - - - - - - - - - - - - - - -->
+				<section>
+					<h2 style="" class="l_overview">Overview</h2>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
+					<div class="slidenote"><div class="l_slidenote_overview"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_whatis">What is a Database?</h2>
+				    <img src="images/tablediagram.png" style="width:400px;float:right;"/>
+					<ul style="width:60%;float:left;">
+						<li class="l_whatis1">Structured collection of information</li>
+						<li class="l_whatis2 fragment">Typically accessed via programmatic interface</li>
+						<li class="l_whatis3 fragment">Typically in a client/server type arrangement</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_whatis">A key feature of a database is that it enables the structured storage of information. This means you define names, data types, and relations between the bits of data. </div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_datadefinition">Tables, Columns, Rows, &amp; Fields</h2>
+				    <img src="images/table.png" style="width:640px;"/>
+					<div class="slidenote"><div class="l_slidenote_datadefinition">Let's talk about how our data is structured. In a database, tables hold the information. You could think of them like spreadsheets. The columns define what will be stored. The rows are the actual data. A field is a specific cell -- say "Jones" at B4. As I mentioned before, you specify ahead of time what type of data can be stored in each column. The database server checks and will throw an error if you try to put the wrong data in a field. That let's you rely on the data: the value of an Age field will always be a number (or null).</div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_relations">Related Tables</h2>
+				    <img src="images/tablediagram.png" style="width:640px;"/>
+					<div class="slidenote"><div class="l_slidenote_relations">Your database could have many tables. Tables let you divide your data into logical groups and eliminate duplicate data. Let's say you had many people at the same rank -- for example, Grand Chessmaster.  That takes up a fair number of characters, and its duplicated for everyone. You might even have to type that in for every person at that rank. Instead, if you had a separate table of rank names, Grand Chessmaster might be rank number 10. To assign that rank, you just need to enter the number 10. It saves storage space and data entry. Plus, if you want to change the name of the rank, say to Supreme Chessmaster, you need to change it only once in the Ranks table and everyone at that rank will get the new label.</div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_dbserver">Client/Server</h2>
+					<ul style="width:80%;">
+						<li class="l_clientserver1">Server: stores the data, manages access, controls security</li>
+						<li class="l_clientserver2">Client: access the data, enables user interaction</li>
+						<li class="l_clientserver3">Client &amp; server might run on the same computer</li>
+						<li class="l_clientserver4">Or, they might be on separate computers</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_dbserver"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_sqlite">SQLite</h2>
+					<ul style="width:80%;">
+						<li class="l_sqlite1">Free, open source database server</li>
+						<li class="l_sqlite2">Included with iOS, Android, and BB10</li>
+						<li class="l_sqlite3">Available for most desktop operating systems, web servers, and more</li>
+						<li class="l_sqlite4">It's what you'll use in your Titanium apps</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_sqlite"></div></div>
+				</section>
+
+				<!-- - - - - - - - - - - - - - - - - NEW TOPIC - - - - - - - - - - - - - - - - -->
+				<section>
+					<h2 style="" class="l_sqloverview">SQL Overview</h2>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
+					<div class="slidenote"><div class="l_slidenote_sqloverview"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_sql">SQL</h2>
+					<pre style=""><code contenteditable>
+SELECT FirstName, LastName FROM students ORDER BY LastName
+					</code></pre>
+					<ul style="width:80%;">
+						<li class="l_sql1">"Structured Query Language" </li>
+						<li class="l_sql2">Your means to access and update data in a database</li>
+						<li class="l_sql3">It's its own programming language</li>
+						<li class="l_sql4">Case-sensitive, sometimes</li>
+					</ul>
+
+					<div class="slidenote"><div class="l_slidenote_sql">SQL is the programming language you use to get data from and update within a database. It's its own programming language, though one that's fairly easy to get started with. It can be case sensitive depending on the operating system in which it runs. I'll go over this more on the next slide.</div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_select">The SELECT Statement</h2>
+					<pre style=""><code contenteditable>
+SELECT (* or field_list) FROM tablename [WHERE condition] [ORDER BY]
+
+SELECT * FROM students
+SELECT * FROM students WHERE LastName = 'Smith'
+SELECT FirstName, LastName FROM students ORDER BY LastName
+
+					</code></pre>
+					<div class="slidenote"><div class="l_slidenote_select">The select statement is perhaps the SQL command you'll use most frequently. Use it to get data from the tables of your database. In general form, SELECT followed by the asterisk (meaning all fields) or a list of fields, then FROM and the table's name. The optional WHERE clause let's you specify which records to get. And ORDER BY lets you sort the results. The key words, like SELECT and such are shown here in all-capitals. That usually doesn't matter. What can be case-sensitive is the names of the fields. On some platforms, Students with a capital S is different than students with a lowercase S. Best is to assume that it matters and be consistent. </div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_join">Joining Tables</h2>
+					<pre style=""><code contenteditable>
+SELECT FirstName, LastName, RankName
+FROM students
+JOIN ranks ON students.RankID = ranks.RankID
+ORDER BY RankID DESC
+					</code></pre>
+					<div class="slidenote"><div class="l_slidenote_join">I don't want to go deep into joining tables. It can get to be quite involved. But going back to my example of students in one table and ranks in the other, if you want to output a list that includes names from one table and ranks from the other, you need to join the tables. </div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_sqlcommands">Other SQL Commands</h2>
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr><th>SQL Statement</th><th>Purpose</th><th>Example</th></tr>
+	<tr>
+		<td>INSERT</td>
+		<td>Add a new record</td>
+		<td><code>INSERT INTO students 
+VALUES ('Fred', 'Flintstone', 3000000, 2)</code></td>
+	</tr>
+	<tr>
+		<td>UPDATE</td>
+		<td>Updating an existing record</td>
+		<td><code>UPDATE students SET RankID = 5<br/>
+WHERE LastName = 'Flintstone'</code></td>
+	</tr>
+	<tr>
+		<td>DELETE</td>
+		<td>Deleting rows</td>
+		<td><code>DELETE FROM students <br/>
+WHERE LastName = 'Flintstone'</code></td>
+	</tr>
+</table>
+					<div class="slidenote"><div class="l_slidenote_sqlcommands"></div></div>
+				</section>
+
+				<!-- - - - - - - - - - - - - - - - - NEW TOPIC - - - - - - - - - - - - - - - - -->
+				<section>
+					<h2 style="" class="l_titanium">Titanium Databases</h2>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
+					<div class="slidenote"><div class="l_slidenote_titanium"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_tisteps">General Steps</h2>
+					<ol style="width:80%;">
+						<li class="l_tisteps1">Open a connection to the database</li>
+						<li class="l_tisteps2">Issue your SQL commands</li>
+						<li class="l_tisteps4">Handle the results</li>
+						<li class="l_tisteps3">Close the connection</li>
+					</ol>
+					<div class="slidenote"><div class="l_slidenote_tisteps"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_dbconn">DB Connections</h2>
+					<pre style=""><code contenteditable>
+var dbconn = Ti.Database.open('mydatabase');
+					</code></pre>
+					<ul style="width:80%;">
+						<li class="l_dbconn1">Like a two-way communication link </li>
+						<li class="l_dbconn2">You'll need one every time you access the database</li>
+						<li class="l_dbconn3">In the command here, if 'mydatabase' doesn't exist, it will be created</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_dbconn"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_recordsets">Recordsets</h2>
+					<pre style=""><code contenteditable>
+var results = dbconn.execute('SELECT * FROM students');
+					</code></pre>
+					<ul style="width:80%;">
+						<li class="l_recordset1">What "comes back" from a command</li>
+						<li class="l_recordset2">Typically a set of records, success/failure code, or an error message</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_recordsets"></div></div>
+				</section>
+
+
+				<section>
+					<h2 style="" class="l_tiexample">Titanium Example</h2>
+					<pre style=""><code contenteditable>
+var dbconn = Ti.Database.open('studentsdb');
+var results = dbconn.execute('SELECT * FROM students');
+var data = []; // an empty array
+while(results.isValidRow()) {
+  data.push({
+    firstname: results.fieldByName('FirstName'),
+    lastname: results.fieldByName('LastName'),
+    age: results.fieldByName('Age')
+  });
+  results.next(); // don't forget this!!
+}
+results.close();
+dbconn.close();
+// do something with data now
+					</code></pre>
+					<div class="slidenote"><div class="l_slidenote_tiexample"></div></div>
+				</section>
+
+
+				<!-- - - - - - - - - - - - - - - - - NEW TOPIC - - - - - - - - - - - - - - - - -->
+				<section>
+					<h2 style="" class="l_installing">Creating/Installing a Database</h2>
+					<img src="../images/robot.png" height='300' style="margin-top:50px;border:none !important; box-shadow: none !important; background: rgba(255,255,255,0);">
+					<div class="slidenote"><div class="l_slidenote_installing"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_install">Install a Prebuilt Database</h2>
+					<pre style=""><code contenteditable>
+var db = Ti.Database.install('/db/students.sqlite', 'studentsdb');
+					</code></pre>
+					<ul style="width:80%;">
+						<li class="l_install1">First param is the location &amp; name of database file to install</li>
+						<li class="l_install2">Second is name of the database once installed</li>
+						<li class="l_install3">You'll access it by the second name later in your app</li>
+						<li class="l_install4">This is a 'safe' method</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_install"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_create">Create a New Database</h2>
+					<pre style=""><code contenteditable>
+var db = Ti.Database.open('studentsdb');
+db.execute('CREATE TABLE IF NOT EXISTS students (id INTEGER 
+  PRIMARY KEY AUTOINCREMENT, FirstName TEXT, LastName TEXT, 
+  Age INTEGER, RankID INTEGER);');
+db.close();
+					</code></pre>
+					<ul style="width:80%;">
+						<li class="l_create1">Use the SQL CREATE TABLE command</li>
+						<li class="l_create2">Field list includes data types and other characteristics</li>
+						<li class="l_create3">This is a 'safe' method</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_create"></div></div>
+				</section>
+
+
+				<section>
+					<h1 class="l_qa_slide">Q&amp;A</h1>
+					<div class="slidenote"><div class="l_slidenote_qa"></div></div>
+				</section>
+				
+				<section>
+					<h2 class="l_lab">Lab Objectives</h2>
+					<ul>
+						<li class="l_labobjective1">Create a new Titanium project</li>
+						<li class="l_labobjective2">Install a database when the app is launched</li>
+						<li class="l_labobjective3">Read all the rows from the database and display them in a table, sorted by last name</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_lab"></div></div>
+				</section>
+
+			</div>
+
+			<!-- MAKE NO CHANGES BELOW THIS LINE -->
+
+			<!-- Appc logo and presenter notes -->
+			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
+			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes'/></a>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="../../presentation-engine/reveal.js/js/reveal.js"></script>
+		<script src="../../presentation-engine/reveal.js/lib/highlight.js"></script>
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+		<script src="../../presentation-engine/js/localize.js"></script>
+		<script>
+			var presenterNotesWindow = null;
+			function openPresenterNotes() {
+				presenterNotesWindow = window.open('presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=600,width=800");
+			}
+		</script>
+		<script>
+		var s = (function load(){
+			var s = {};
+			if(window.outerHeight){
+				s = { w: window.outerWidth, h: window.outerHeight};
+			}
+			else {
+				s = { w: document.body.clientWidth, h: document.body.clientHeight};
+			}
+			return s;
+		})();
+		if(s.w < 1000 || s.h < 800) {
+			var slides = document.querySelectorAll( '#reveal .slides' );
+			for( var i = 0, len = slides.length; i < len; i++ ) {
+				slides[i].classList.add( 'smallscreen' );
+		    }
+		}
+		</script>
+	</body>
+</html>
