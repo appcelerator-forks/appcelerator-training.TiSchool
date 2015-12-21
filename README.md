@@ -1,3 +1,5 @@
+# DEPRECATED
+
 <img src='http://robohash.org/https://github.com/appcelerator-training/TiSchool' style="float:right;margin:0 0 20px 20px;border:none;" width="200" height="200" align="right">
 TiSchool
 ========
